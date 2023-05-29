@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+  font-family: 'Inter', sans-serif;
+  font-size: calc(10px + 0.7vw);
+  @apply bg-gray-950;
+}
+
+.font-play {
+  font-family: 'Play', sans-serif;
+}
+
+body,
+html,
+#app {
+  height: 100%;
+}

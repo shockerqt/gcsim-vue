@@ -9,7 +9,7 @@ console.log(route.name)
 <template>
   <nav class="flex px-10 py-5 w-full justify-between">
     <RouterLink to="/" class="text-white font-bold">GCSIM</RouterLink>
-    <ul class="flex gap-6 text-gray-500 font-bold text-sm">
+    <ul class="flex gap-6 text-gray-200 font-bold text-sm">
       <li class="hover:text-teal-300">
         <RouterLink to="/simulator" active-class="text-teal-500">Simulator</RouterLink>
       </li>

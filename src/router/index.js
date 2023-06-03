@@ -17,7 +17,12 @@ const router = createRouter({
     {
       path: '/characters',
       name: 'characters',
-      component: () => import('../views/CharactersView.vue')
+      component: () => import('../views/CharactersView.vue'),
+    },
+    {
+      path: '/characters/:character',
+      name: 'character',
+      component: () => import('../views/CharacterView.vue'),
     },
     {
       path: '/help',

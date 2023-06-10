@@ -3,7 +3,7 @@ defineProps<{
   to: string;
 }>();
 
-const anchorActiveClasses = 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500';
+const anchorActiveClasses = 'md:bg-transparent bg-primary-500 text-black-700 md:text-primary-500 hover:text-black-700 hover:bg-primary-100';
 
 </script>
 
@@ -11,7 +11,7 @@ const anchorActiveClasses = 'text-white bg-blue-700 md:bg-transparent md:text-bl
   <li>
     <NuxtLink
       :to="to"
-      class="block py-2 pl-3 pr-4 rounded md:p-0 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+      class="block py-2 pl-3 pr-4 rounded md:p-0 text-black-100 hover:text-primary-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-100"
       aria-current-value="page"
       :active-class="anchorActiveClasses"
     >

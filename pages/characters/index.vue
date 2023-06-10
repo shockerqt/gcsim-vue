@@ -175,11 +175,6 @@ const filteredCharacters = computed(() => {
     filteredCharacters.unshift(pinnedCharacter.value);
   }
 
-  // filteredCharacters.forEach((character) => {
-  //   character.pinned = false;
-  //   if (pinnedCharacter.value && pinnedCharacter.value.name === character.name) { character.pinned = true; }
-  // });
-
   return filteredCharacters;
 });
 </script>
@@ -189,12 +184,12 @@ const filteredCharacters = computed(() => {
     <header class="max-w-5xl w-full p-8 m-auto">
       <!-- TITLE & DESCRIPTION -->
       <div class="row-span-2 my-2">
-        <h1 class="text-g2 font-bold my-1">
-          FILTRA TUS PERSONAJES FAVORITOS
-        </h1>
+        <a class="text-black-100 text-xl font-bold my-1 hover:text-primary-100 active:text-primary-500">
+          PERSONAJES
+        </a>
 
         <!-- DESCRIPTION -->
-        <p class="text-b3 font-light text-xs mb-2">
+        <p class="text-black-100 text-normal font-sm ">
           Utiliza nuestro sistema de filtrado para encontrar rápidamente tus personajes favoritos de
           Genshin Impact por elementos, rareza, arma y más. Personaliza tu búsqueda para obtener
           mejores resultados en segundos.
@@ -204,22 +199,20 @@ const filteredCharacters = computed(() => {
         <div class="grid grid-cols-[repeat(17,_1fr)] gap-2">
           <input
             v-model="textFilter"
-            class="col-span-11 rounded bg-transparent text-white"
+            class="col-span-11 bg-black-600 text-black-100 text-sm rounded-lg border-black-500 focus:border-black-600 focus:ring-4 focus:ring-black-500 block w-full p-2.5 placeholder:text-black-500 placeholder:italic placeholder:text-black"
             type="text"
             placeholder="Busca el personaje"
           >
 
           <!-- CLEAN BUTTON -->
           <div
-            class="border rounded overflow-hidden hover:bg-b2 active:bg-pink-500 col-span-2 col-start-[16]"
+            class=" col-span-2 col-start-[16]"
           >
-            <button
-              class="p-2 w-full text-white text-center transition-all"
-              type="button"
+            <ButtonSecondary
               @click="cleanFilters"
             >
-              LIMPIAR
-            </button>
+              Clean
+            </ButtonSecondary>
           </div>
         </div>
       </div>
@@ -229,8 +222,8 @@ const filteredCharacters = computed(() => {
         <!-- RARITY FILTERS -->
         <div class="grid col-span-3 grid-cols-3 border rounded overflow-hidden">
           <button
-            :class="`p-2 text-white hover:bg-neutral-800 border-r transition-all ${
-              rarityFilterState.all ? 'bg-g1' : ''
+            :class="`p-2 text-black-100 hover:bg-primary-100 border-r transition-all ${
+              rarityFilterState.all ? 'bg-primary-500' : ''
             }`"
             type="button"
             @click="() => onClickFilterAllButton(rarityFilterState)"
@@ -240,8 +233,8 @@ const filteredCharacters = computed(() => {
           <button
             v-for="(value, i) of rarities"
             :key="value"
-            :class="`p-2 hover:bg-neutral-800 text-b3 ${i === rarities.length - 1 ? '' : 'border-r'} ${
-              rarityFilterState[value] ? 'bg-g1' : ''
+            :class="`p-2 hover:bg-black-600 text-b3 ${i === rarities.length - 1 ? '' : 'border-r'} ${
+              rarityFilterState[value] ? 'bg-primary-500' : ''
             }`"
             type="button"
             @click="() => onClickFilterButton(rarityFilterState, value)"
@@ -252,8 +245,8 @@ const filteredCharacters = computed(() => {
         <!-- ELEMENTS FILTERS -->
         <div class="col-span-8 grid grid-cols-[repeat(8,_1fr)] border rounded overflow-hidden">
           <button
-            :class="`p-2 text-white hover:bg-neutral-800 border-r transition-all ${
-              elementsFilterState.all ? 'bg-g1' : ''
+            :class="`p-2 text-white hover:bg-primary-100 border-r transition-all ${
+              elementsFilterState.all ? 'bg-primary-500' : ''
             }`"
             type="button"
             @click="() => onClickFilterAllButton(elementsFilterState)"
@@ -263,7 +256,7 @@ const filteredCharacters = computed(() => {
           <button
             v-for="({ name, imgSrc }, i) of elements"
             :key="name"
-            :class="`grid place-items-center p-2 hover:bg-neutral-800 ${
+            :class="`grid place-items-center p-2 hover:bg-black-600 ${
               i === elements.length - 1 ? '' : 'border-r'
             } transition-all ${
               elementsFilterState[name] ? `bg-${name}/75` : ''
@@ -279,8 +272,8 @@ const filteredCharacters = computed(() => {
         <div class="col-span-6 grid grid-cols-[repeat(6,_1fr)] border rounded overflow-hidden">
           <!-- WEAPONS BUTTON ALL -->
           <button
-            :class="`grid place-items-center p-2 text-b3 hover:bg-neutral-800 border-r transition-all ${
-              weaponsFilterState.all ? 'bg-g1' : ''
+            :class="`grid place-items-center p-2 text-b3 hover:bg-primary-100 border-r transition-all ${
+              weaponsFilterState.all ? 'bg-primary-500' : ''
             }`"
             type="button"
             @click="() => onClickFilterAllButton(weaponsFilterState)"
@@ -292,9 +285,9 @@ const filteredCharacters = computed(() => {
           <button
             v-for="weapon, i of weapons"
             :key="weapon"
-            :class="`grid place-items-center p-4 text-b3 hover:bg-neutral-800 ${
+            :class="`grid place-items-center p-4 text-b3 hover:bg-black-600 ${
               i === weapons.length - 1 ? '' : 'border-r'
-            } ${weaponsFilterState[weapon] === true ? 'bg-g1' : ''}`"
+            } ${weaponsFilterState[weapon] === true ? 'bg-primary-500' : ''}`"
             type="button"
             @click="onClickFilterButton(weaponsFilterState, weapon)"
           >
@@ -309,7 +302,7 @@ const filteredCharacters = computed(() => {
         <div
           v-for="(character, i) in filteredCharacters"
           :key="character.name"
-          class="aspect-square bg-zinc-800 rounded-xl overflow-hidden character-grid-item"
+          class="character-grid-item aspect-square rounded-xl overflow-hidden"
         >
           <RouterLink
             :to="`/characters/${character.slug}`"
@@ -329,7 +322,31 @@ const filteredCharacters = computed(() => {
 
 <style>
   .character-grid-item {
+    position: relative;
     transition: all 0.3s ease-in-out;
+    background: linear-gradient(135deg, #1E1E1E 20%, #2C2C2C 80%);
+  }
+
+  .character-grid-item::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, #ffffff90 50%, transparent 60%);
+    animation: 3s linear 1s bright;
+    right: -100%;
+    bottom: -100%;
+  }
+
+  .character-grid-item:hover::before {
+    animation-play-state: running;
+  }
+
+  .character-grid-item-img {
+
+    position: relative;
+    z-index: 1;
   }
 
   .character-grid-item:hover > .character-grid-item-img {
@@ -357,4 +374,13 @@ const filteredCharacters = computed(() => {
   .pinned {
     outline: 1px solid green;
   }
+
+  @keyframes bright {
+  from {
+    transform: translate(0%, 0%);
+  }
+  to {
+    transform: translate(200%, 200%);
+  }
+}
 </style>

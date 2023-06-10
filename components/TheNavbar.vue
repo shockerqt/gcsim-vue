@@ -17,18 +17,24 @@ const isShowMenu = computed(() => isMobile ? isShowMenuOnMobile.value : true);
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo">
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GCSim</span>
       </NuxtLink>
-      <button
-        type="button"
-        class="inline-flex items-center p-2 ml-3 text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
-        aria-controls="navbar-default"
-        :aria-expanded="isShowMenu"
-        @click="toggleMobileMenu()"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
-      </button>
-      <div id="navbar-default" class="w-full md:block md:w-auto" :class="{ hidden: !isShowMenu }">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-neutral-800 md:dark:bg-neutral-900 dark:border-neutral-700">
+
+      <div class="flex md:order-2">
+        <RouterLink to="/login" class="text-black-700 bg-primary-500 hover:bg-primary-100 focus:ring-4 focus:outline-none focus:ring-primary-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">
+          Login with Discord
+        </RouterLink>
+        <button
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
+          aria-controls="navbar-default"
+          :aria-expanded="isShowMenu"
+          @click="toggleMobileMenu()"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
+        </button>
+      </div>
+      <div id="navbar-default" class="items-center justify-between w-full md:flex md:w-auto md:order-1" :class="{ hidden: !isShowMenu }">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
           <TheNavbarLink to="/simulator">
             Simulator
           </TheNavbarLink>

@@ -45,12 +45,12 @@ if (!character.value) {
         </div>
         <img class="w-8 ml-3" :src="`/img/elements/${character?.element?.toLowerCase()}.svg`">
       </div>
-      <hr class="border-g2 border-t my-4">
+      <hr class="border-primary-500 border-t my-4">
       <div>
-        <p class="text-gray-200 font-bold text-3xl">
+        <p class="text-black-100 font-bold text-3xl">
           {{ character?.name }}
         </p>
-        <p class="text-neutral-600 font-bold text-xl mb-3">
+        <p class="text-black-500 font-bold text-xl mb-3">
           {{ character?.title }}
         </p>
         <div class="flex">
@@ -62,7 +62,14 @@ if (!character.value) {
           >
         </div>
       </div>
-      <hr class="border-g2 border-t my-4">
+      <hr class="border-primary-500 border-t my-4">
+      <div class="max-h-64 overflow-auto">
+        <CharacterTeamPreview />
+        <CharacterTeamPreview />
+        <CharacterTeamPreview />
+        <CharacterTeamPreview />
+        <CharacterTeamPreview />
+      </div>
     </div>
   </main>
 </template>
@@ -71,21 +78,19 @@ if (!character.value) {
 .bg-image {
   position: absolute;
   z-index: -20;
-  top: 0;
+  bottom: 0;
   left: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
   background-size: 180vh;
   background-repeat: no-repeat;
-  background-position: calc(50% - 20vw) 0%;
+  background-position: calc(50% - 20vw) bottom;
 }
 
 .bg-gradient {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to right, transparent, black);
-  /* background-position: calc(50% - 20vw) 0%; */
-  /* @apply absolute top-0 bottom-[70vh] w-[180vh] -z-10 bg-gradient-to-b to-transparent; */
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.8), black);
 }
 </style>

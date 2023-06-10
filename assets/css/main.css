@@ -1,10 +1,13 @@
-:root {
-  @apply bg-neutral-900 dark:bg-neutral-900;
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
+@import url("https://rsms.me/inter/inter.css");
 
+:root {
+  @apply bg-black-700;
   font-family: 'Inter', sans-serif;
   font-size: min(calc(12px + 0.4vw), 20px);
+}
+
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
 }
 
 body {

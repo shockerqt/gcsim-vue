@@ -302,7 +302,7 @@ const filteredCharacters = computed(() => {
         <div
           v-for="(character, i) in filteredCharacters"
           :key="character.name"
-          class="character-grid-item aspect-square rounded-xl overflow-hidden"
+          class="character-grid-item base-background-gradient aspect-square rounded-xl overflow-hidden"
         >
           <RouterLink
             :to="`/characters/${character.slug}`"
@@ -324,7 +324,7 @@ const filteredCharacters = computed(() => {
   .character-grid-item {
     position: relative;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(135deg, #1E1E1E 20%, #2C2C2C 80%);
+
   }
 
   .character-grid-item::before {

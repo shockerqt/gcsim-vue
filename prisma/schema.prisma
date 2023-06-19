@@ -1,0 +1,43 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  session String
+  role    String
+}
+
+model Character {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  title      String
+  rarity     Int
+  element    String
+  weaponType String
+  substat    String
+  images     Image[]
+}
+
+type Image {
+  src  String
+  name String
+}
+
+model Talent {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model Artifact {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model Weapon {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}

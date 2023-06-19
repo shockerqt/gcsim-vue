@@ -19,9 +19,15 @@
     "@vueuse/nuxt": "^10.1.2",
     "eslint": "^8.42.0",
     "nuxt": "npm:nuxt3@latest",
-    "postcss": "^8.4.24"
+    "postcss": "^8.4.24",
+    "prisma": "^4.15.0"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^8.0.0-beta.12"
+    "@fortawesome/fontawesome-common-types": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@nuxtjs/i18n": "^8.0.0-beta.12",
+    "@prisma/client": "^4.15.0",
+    "jsonwebtoken": "^9.0.0"
   }
 }

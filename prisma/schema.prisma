@@ -8,10 +8,11 @@ generator client {
 }
 
 model User {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  session String
-  role    String
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  discordId String @unique
+  name      String
+  avatar    String
+  role      String
 }
 
 model Character {

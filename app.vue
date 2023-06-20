@@ -14,16 +14,14 @@ const layout = 'default';
   .page-leave-active,
   .layout-enter-active,
   .layout-leave-active {
-    @apply transition-all;
+    @apply transition-opacity;
   }
   .page-enter-from,
   .layout-enter-from {
-    transform: scale(0.95);
     opacity: 0;
   }
   .page-leave-to,
   .layout-leave-to {
-    transform: scale(0.95);
     opacity: 0;
   }
 </style>

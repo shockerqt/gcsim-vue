@@ -9,7 +9,7 @@ defineProps<{ table: Table }>();
 </script>
 
 <template>
-  <div class="bg-black-400 pb-2 grow  text-[0.6rem]">
+  <div class="bg-black-400 pb-2 text-[0.6rem] w-96">
     <table class="text-left w-full text-xs">
       <thead class="text-primary-500 uppercase">
         <tr>

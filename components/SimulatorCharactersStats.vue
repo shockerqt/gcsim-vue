@@ -32,9 +32,11 @@ const table3 = {
 </script>
 
 <template>
-  <div class="flex gap-4 items-start flex-wrap">
-    <SimulatorCharactersStatsBasico :table="table1" />
-    <SimulatorCharactersStatsBasico :table="table2" />
-    <SimulatorCharactersStatsBasico :table="table3" />
+  <div class="flex gap-4 items-start flex-wrap justify-center">
+    <div class="flex flex-col gap-4">
+      <SimulatorCharactersStatsTable :table="table1" />
+      <SimulatorCharactersStatsTable :table="table3" />
+    </div>
+    <SimulatorCharactersStatsTable :table="table2" />
   </div>
 </template>

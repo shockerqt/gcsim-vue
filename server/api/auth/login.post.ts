@@ -1,4 +1,7 @@
-interface TokenResponse {
+import prisma from '../../controllers/prisma';
+import { useAuthSession } from '../../utils/session';
+
+export interface DiscordToken {
   access_token: string;
   expires_in: number;
   refresh_token: string;
@@ -6,7 +9,7 @@ interface TokenResponse {
   token_type: string;
 }
 
-const exchangeCode = async (code: string): Promise<TokenResponse | null> => {
+const exchangeCode = async (code: string): Promise<DiscordToken | null> => {
   const {
     DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET,
@@ -38,17 +41,34 @@ const exchangeCode = async (code: string): Promise<TokenResponse | null> => {
   return null;
 };
 
-const handleToken = (token: TokenResponse) => {
-  console.log(token);
-};
-
 export default defineEventHandler(async (event) => {
   const { code } = getQuery(event);
-
+  const session = await useAuthSession(event);
   const token = await exchangeCode(code as string);
   if (token) {
-    handleToken(token);
-    return { tokenType: token.token_type, accessToken: token.access_token };
+    const response = await fetchUser(token);
+    const data = await response.json();
+    session.update({
+      id: data.id,
+      discordToken: JSON.stringify(token),
+      username: data.username,
+      avatar: data.avatar,
+    });
+    await prisma.user.upsert({
+      where: { discordId: data.id },
+      create: {
+        discordId: data.id,
+        name: data.username,
+        role: 'user',
+        avatar: data.avatar,
+      },
+      update: {
+        name: data.username,
+        role: 'user',
+        avatar: data.avatar,
+      },
+    });
+    return { user: data.username, avatar: data.avatar };
   } else {
     return null;
   }

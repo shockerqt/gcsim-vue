@@ -1,12 +1,11 @@
 export default defineEventHandler(async (event) => {
-  const { data } = await useAuthSession(event);
-  if (!data.id) {
-    return null;
-  } else {
+  const session = await useAuthSession(event);
+  if (session.data) {
     return {
-      id: data.id,
-      username: data.username,
-      avatar: data.avatar,
+      id: session.data.id,
+      username: session.data.username,
+      avatar: session.data.avatar,
     };
   }
+  return null;
 });

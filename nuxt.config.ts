@@ -43,11 +43,16 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     auth: {
-      name: 'nuxt-session',
-      password: process.env.SECRET || '',
+      name: 'server-session',
+      password: process.env.SECRET || 'asd',
+    },
+    discord: {
+      discordClientId: process.env.DISCORD_CLIENT_ID,
+      discordClientSecret: process.env.DISCORD_CLIENT_SECRET,
+      discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
     },
     public: {
-      dicordClientId: process.env.DISCORD_CLIENT_ID,
+      discordClientId: process.env.DISCORD_CLIENT_ID,
       discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
     },
   },

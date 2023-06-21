@@ -5,8 +5,8 @@ const sessionConfig: SessionConfig = useRuntimeConfig().auth || {};
 export type AuthSession = {
   id: string;
   username: string;
-  avatar: string;
   discordToken: string;
+  avatar: string;
 };
 
 export const useAuthSession = async (event: H3Event) => {

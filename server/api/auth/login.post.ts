@@ -61,7 +61,7 @@ export default defineEventHandler(async (event) => {
       username: data.username,
       avatar: data.avatar,
     });
-    prisma.user.upsert({
+    await prisma.user.upsert({
       where: { discordId: data.id },
       create: {
         discordId: data.id,

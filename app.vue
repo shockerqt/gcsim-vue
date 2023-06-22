@@ -1,13 +1,18 @@
+<script setup>
+const { loggedIn } = useUserSession();
+
+watch(loggedIn, () => {
+  if (!loggedIn.value) {
+    navigateTo('/');
+  }
+});
+</script>
+
 <template>
-  <NuxtLayout :name="layout">
+  <NuxtLayout name="default">
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<script setup>
-// You might choose this based on an API call or logged-in status
-const layout = 'default';
-</script>
 
 <style>
   .page-enter-active,

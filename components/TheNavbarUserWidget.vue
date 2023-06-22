@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { breakpointsTailwind } from '@vueuse/core';
-const { loggedIn, logout, session } = useAuth();
+// const { loggedIn, logout, session } = useAuth();
+const { loggedIn, user, logout } = useUserSession();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 
 const isMobile = breakpoints.smaller('md');
@@ -22,16 +23,16 @@ const baseUrl = 'https://cdn.discordapp.com/';
 </script>
 
 <template>
-  <NuxtLink v-show="!loggedIn" to="/login" class="text-black-700 bg-primary-500 hover:bg-primary-100 focus:ring-4 focus:outline-none focus:ring-primary-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">
+  <a v-show="!loggedIn" href="/api/auth/discord" :external="true" class="text-black-700 bg-primary-500 hover:bg-primary-100 focus:ring-4 focus:outline-none focus:ring-primary-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">
     Login with Discord
-  </NuxtLink>
+  </a>
   <button
     v-show="loggedIn"
     ref="buttonElement"
     class="w-12 h-12 rounded-full overflow-hidden cursor-pointer focus:ring-2 focus:ring-primary-100"
     @click="toggleMenu()"
   >
-    <img :src="`${baseUrl}avatars/${session?.id}/${session?.avatar}.png`" alt="User Discord Avatar">
+    <img :src="`${baseUrl}avatars/${user?.discordId}/${user?.avatar}.png`" alt="User Discord Avatar">
   </button>
   <menu
     v-show="loggedIn && isShowMenu"

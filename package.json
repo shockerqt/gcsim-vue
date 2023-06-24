@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "preview": "nuxt preview",
     "postinstall": "prisma generate && nuxt prepare",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "db:data": "ts-node --skipProject scripts/index"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -31,6 +32,7 @@
     "@nuxtjs/i18n": "^8.0.0-beta.12",
     "@prisma/client": "^4.15.0",
     "jsonwebtoken": "^9.0.0",
+    "ts-node": "^10.9.1",
     "vue-select": "^4.0.0-beta.6"
   }
 }

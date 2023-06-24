@@ -23,6 +23,7 @@ for (const character of dbCharacter) {
       element: character.element,
       imgSrc: character.images.icon,
       slug: character.name.replace(' ', '_'),
+      splash: character.images.
     }
   );
 }

@@ -8,7 +8,7 @@
       "en": "Wolf Boy",
       "es": "El Niño-lobo"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -293,7 +293,7 @@
       "en": "Exquisite Delicacy",
       "es": "La Maestra Culinaria de Liyue"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -578,7 +578,7 @@
       "en": "Crowfeather Kaburaya",
       "es": "La Arquera Plumanegra"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -863,7 +863,7 @@
       "en": "Beyond Mortality",
       "es": "El Transgresor de lo Mortal"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -1148,7 +1148,7 @@
       "en": "Vago Mundo",
       "es": "El Vagabundo del Reino Mortal"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -1433,7 +1433,7 @@
       "en": "Driving Thunder",
       "es": "La Conductora del Trueno"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -1718,7 +1718,7 @@
       "en": "Blazing Riff",
       "es": "La Melodía Incandescente"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -2003,7 +2003,7 @@
       "en": "Prinzessin der Verurteilung!",
       "es": "La Princesa del Juicio"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -2288,7 +2288,7 @@
       "en": "Shining Idol",
       "es": "La Ídolo Radiante"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -2573,7 +2573,7 @@
       "en": "Eclipsing Star",
       "es": "La Estrella en Eclipse"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -2858,7 +2858,7 @@
       "en": "Valley Orchid",
       "es": "La Orquídea del Valle"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -3143,7 +3143,7 @@
       "en": "Gliding Champion",
       "es": "La Campeona de Vuelo"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -3428,7 +3428,7 @@
       "en": "Lonesome Transcendence",
       "es": "La Ermitaña Sobrehumana"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -3713,7 +3713,7 @@
       "en": "Astral Reflection",
       "es": "La Observadora de los Astros"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -4009,7 +4009,7 @@
       "en": "Dance of Lotuslight",
       "es": "La Bailarina de los Lotos"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -4294,7 +4294,7 @@
       "en": "Trial by Fire",
       "es": "El Tentador del Destino"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -4579,7 +4579,7 @@
       "en": "Fragrance in Thaw",
       "es": "La Guía del Más Allá"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -4864,7 +4864,7 @@
       "en": "Frostwind Swordsman",
       "es": "El Espadachín Glacial"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -5149,7 +5149,7 @@
       "en": "Wise Innocence",
       "es": "La Letrada Inocente"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -5434,7 +5434,7 @@
       "en": "Thorny Benevolence",
       "es": "La Beata Impía"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -5719,7 +5719,7 @@
       "en": "Childe",
       "es": "Nobile"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -6004,7 +6004,7 @@
       "en": "Astute Amusement",
       "es": "La Kitsune Taimada"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -6289,7 +6289,7 @@
       "en": "Frozen Ardor",
       "es": "El Hielo Ardiente"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -6574,7 +6574,7 @@
       "en": "Dandelion Knight",
       "es": "La Caballera de Dandelion"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -6859,7 +6859,7 @@
       "en": "Kreideprinz",
       "es": "El Príncipe de la Roca Caliza"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -7144,7 +7144,7 @@
       "en": "Burgeoning Grace",
       "es": "La Flor Grácil"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -7429,7 +7429,7 @@
       "en": "Protector From Afar",
       "es": "El Protector de Tierras Lejanas"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -7714,7 +7714,7 @@
       "en": "Mender of Tribulations",
       "es": "La Resolutora de Apuros"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -7999,7 +7999,7 @@
       "en": "Savior From Another World",
       "es": "La Salvadora de Otro Mundo"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -8284,7 +8284,7 @@
       "en": "Scarlet Leaves Pursue Wild Waves",
       "es": "El Mensajero del Viento"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -8569,7 +8569,7 @@
       "en": "Frolicking Flames",
       "es": "La Maestra de las Llamas"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -8854,7 +8854,7 @@
       "en": "Fantastical Evening Star",
       "es": "La Estrella de la Noche"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -9139,7 +9139,7 @@
       "en": "Fleeing Sunlight",
       "es": "El Sol Fugitivo"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -9424,7 +9424,7 @@
       "en": "Pearl of Wisdom",
       "es": "La Perla de la Sabiduría"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -9632,6 +9632,17 @@
         },
         "src": ""
       },
+      "passive4": {
+        "name": {
+          "en": "Flawless Strategy",
+          "es": "Estrategia infalible"
+        },
+        "info": {
+          "en": "Sangonomiya Kokomi has a 25% Healing Bonus, but a 100% decrease in CRIT Rate.",
+          "es": "Aumenta en un 25% el Bono de Curación de Sangonomiya Kokomi, pero reduce su Prob. CRIT en un 100%."
+        },
+        "src": ""
+      },
       "c1": {
         "name": {
           "en": "At Water's Edge",
@@ -9697,17 +9708,6 @@
           "es": "Mientras está bajo los efectos del manto ceremonial de **Encarnación de las nereidas**, cuando Sangonomiya Kokomi realiza un Ataque Normal o Cargado que tiene efectos curativos con el fin de curar a un personaje con un 80% o más de Vida, obtiene un 40% de Bono de Daño Hydro durante 4 s."
         },
         "src": ""
-      },
-      "passive4": {
-        "name": {
-          "en": "Flawless Strategy",
-          "es": "Estrategia infalible"
-        },
-        "info": {
-          "en": "Sangonomiya Kokomi has a 25% Healing Bonus, but a 100% decrease in CRIT Rate.",
-          "es": "Aumenta en un 25% el Bono de Curación de Sangonomiya Kokomi, pero reduce su Prob. CRIT en un 100%."
-        },
-        "src": ""
       }
     }
   },
@@ -9720,7 +9720,7 @@
       "en": "Eons Adrift",
       "es": "El Caminante Eterno"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -10005,7 +10005,7 @@
       "en": "Treasure of Dream Garden",
       "es": "La Magnate Acaudalada"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -10290,7 +10290,7 @@
       "en": "Uncrowned Lord of the Ocean",
       "es": "La Reina del Océano sin Corona"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -10575,7 +10575,7 @@
       "en": "Sprout of Rebirth",
       "es": "La Promesa en Flor"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -10860,7 +10860,7 @@
       "en": "Canine Warrior",
       "es": "El General Canino"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -11145,7 +11145,7 @@
       "en": "Plane of Euthymia",
       "es": "La Entidad de la Eutimia"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -11430,7 +11430,7 @@
       "en": "Empyrean Reflection",
       "es": "El Espejo del Empíreo"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -11715,7 +11715,7 @@
       "en": "Pillar of Fortitude",
       "es": "El Vigoroso Estratega"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -12000,7 +12000,7 @@
       "en": "Chivalric Blossom",
       "es": "La Heroína no Reconocida"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -12285,7 +12285,7 @@
       "en": "Verdant Strider",
       "es": "El Caminante de la Espesura"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -12570,7 +12570,7 @@
       "en": "Frostflake Heron",
       "es": "La Garza de la Escarcha"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -12866,7 +12866,7 @@
       "en": "Mujina Ninja",
       "es": "La Tejón Ninja"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -13151,7 +13151,7 @@
       "en": "Analytical Harmony",
       "es": "El Detective de la Armonía"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -13436,7 +13436,7 @@
       "en": "Admonishing Instruction",
       "es": "El Instructor Severo"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -13721,7 +13721,7 @@
       "en": "Witch of Purple Rose",
       "es": "La Bruja de las Rosas"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -14006,7 +14006,7 @@
       "en": "Icy Resurrection",
       "es": "La Resurrección del Hielo"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -14291,7 +14291,7 @@
       "en": "Hanamizaka Heroics",
       "es": "El Héroe de Hanamizaka"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -14576,7 +14576,7 @@
       "en": "Windborne Bard",
       "es": "El Bardo Itinerante"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -14861,7 +14861,7 @@
       "en": "Flame-Mane",
       "es": "La Leona Ardiente"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -15146,7 +15146,7 @@
       "en": "Kätzlein Cocktail",
       "es": "La Cantinera Felina"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -15431,7 +15431,7 @@
       "en": "Physic of Purity",
       "es": "La Purificadora de las Plantas"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -15716,7 +15716,7 @@
       "en": "Vigilant Yaksha",
       "es": "El Guardián Yaksha"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -16001,7 +16001,7 @@
       "en": "Dance of the Shimmering Wave",
       "es": "La Bailarina de las Olas"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -16286,7 +16286,7 @@
       "en": "Enigmatic Machinist",
       "es": "La Ingeniera Enigmática"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -16571,7 +16571,7 @@
       "en": "Cat Upon the Eaves",
       "es": "La Gata en los Aleros"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Dendro",
       "es": "Dendro"
@@ -16856,7 +16856,7 @@
       "en": "Stage Lucida",
       "es": "La Prima Donna del Escenario"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Geo",
       "es": "Geo"
@@ -17141,7 +17141,7 @@
       "en": "Plenilune Gaze",
       "es": "La Vigía del Plenilunio"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -17426,7 +17426,7 @@
       "en": "Juvenile Galant",
       "es": "El Joven Galante"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -17711,7 +17711,7 @@
       "en": "Judicator of Secrets",
       "es": "El Magistrado de lo Arcano"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Electro",
       "es": "Electro"
@@ -17996,7 +17996,7 @@
       "en": "Golden Vow",
       "es": "La Devota Áurea"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Hydro",
       "es": "Hydro"
@@ -18281,7 +18281,7 @@
       "en": "Coordinates of Clear Frost",
       "es": "El Agrimensor Nieveclara"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Cryo",
       "es": "Cryo"
@@ -18566,7 +18566,7 @@
       "en": "Harmless Sweetie",
       "es": "La Dulzura Inofensiva"
     },
-    "rarity": "4",
+    "rarity": 4,
     "element": {
       "en": "Anemo",
       "es": "Anemo"
@@ -18851,7 +18851,7 @@
       "en": "Dark Side of Dawn",
       "es": "El Amanecer Oscuro"
     },
-    "rarity": "5",
+    "rarity": 5,
     "element": {
       "en": "Pyro",
       "es": "Pyro"
@@ -19137,7 +19137,7 @@
         "en": "Wolf Boy",
         "es": "El Niño-lobo"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -19422,7 +19422,7 @@
         "en": "Exquisite Delicacy",
         "es": "La Maestra Culinaria de Liyue"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -19707,7 +19707,7 @@
         "en": "Crowfeather Kaburaya",
         "es": "La Arquera Plumanegra"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -19992,7 +19992,7 @@
         "en": "Beyond Mortality",
         "es": "El Transgresor de lo Mortal"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -20277,7 +20277,7 @@
         "en": "Vago Mundo",
         "es": "El Vagabundo del Reino Mortal"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -20562,7 +20562,7 @@
         "en": "Driving Thunder",
         "es": "La Conductora del Trueno"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -20847,7 +20847,7 @@
         "en": "Blazing Riff",
         "es": "La Melodía Incandescente"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -21132,7 +21132,7 @@
         "en": "Prinzessin der Verurteilung!",
         "es": "La Princesa del Juicio"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -21417,7 +21417,7 @@
         "en": "Shining Idol",
         "es": "La Ídolo Radiante"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -21702,7 +21702,7 @@
         "en": "Eclipsing Star",
         "es": "La Estrella en Eclipse"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -21987,7 +21987,7 @@
         "en": "Valley Orchid",
         "es": "La Orquídea del Valle"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -22272,7 +22272,7 @@
         "en": "Gliding Champion",
         "es": "La Campeona de Vuelo"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -22557,7 +22557,7 @@
         "en": "Lonesome Transcendence",
         "es": "La Ermitaña Sobrehumana"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -22842,7 +22842,7 @@
         "en": "Astral Reflection",
         "es": "La Observadora de los Astros"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -23138,7 +23138,7 @@
         "en": "Dance of Lotuslight",
         "es": "La Bailarina de los Lotos"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -23423,7 +23423,7 @@
         "en": "Trial by Fire",
         "es": "El Tentador del Destino"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -23708,7 +23708,7 @@
         "en": "Fragrance in Thaw",
         "es": "La Guía del Más Allá"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -23993,7 +23993,7 @@
         "en": "Frostwind Swordsman",
         "es": "El Espadachín Glacial"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -24278,7 +24278,7 @@
         "en": "Wise Innocence",
         "es": "La Letrada Inocente"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -24563,7 +24563,7 @@
         "en": "Thorny Benevolence",
         "es": "La Beata Impía"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -24848,7 +24848,7 @@
         "en": "Childe",
         "es": "Nobile"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -25133,7 +25133,7 @@
         "en": "Astute Amusement",
         "es": "La Kitsune Taimada"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -25418,7 +25418,7 @@
         "en": "Frozen Ardor",
         "es": "El Hielo Ardiente"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -25703,7 +25703,7 @@
         "en": "Dandelion Knight",
         "es": "La Caballera de Dandelion"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -25988,7 +25988,7 @@
         "en": "Kreideprinz",
         "es": "El Príncipe de la Roca Caliza"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -26273,7 +26273,7 @@
         "en": "Burgeoning Grace",
         "es": "La Flor Grácil"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -26558,7 +26558,7 @@
         "en": "Protector From Afar",
         "es": "El Protector de Tierras Lejanas"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -26843,7 +26843,7 @@
         "en": "Mender of Tribulations",
         "es": "La Resolutora de Apuros"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -27128,7 +27128,7 @@
         "en": "Savior From Another World",
         "es": "La Salvadora de Otro Mundo"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -27413,7 +27413,7 @@
         "en": "Scarlet Leaves Pursue Wild Waves",
         "es": "El Mensajero del Viento"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -27698,7 +27698,7 @@
         "en": "Frolicking Flames",
         "es": "La Maestra de las Llamas"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -27983,7 +27983,7 @@
         "en": "Fantastical Evening Star",
         "es": "La Estrella de la Noche"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -28268,7 +28268,7 @@
         "en": "Fleeing Sunlight",
         "es": "El Sol Fugitivo"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -28553,7 +28553,7 @@
         "en": "Pearl of Wisdom",
         "es": "La Perla de la Sabiduría"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -28761,6 +28761,17 @@
           },
           "src": ""
         },
+        "passive4": {
+          "name": {
+            "en": "Flawless Strategy",
+            "es": "Estrategia infalible"
+          },
+          "info": {
+            "en": "Sangonomiya Kokomi has a 25% Healing Bonus, but a 100% decrease in CRIT Rate.",
+            "es": "Aumenta en un 25% el Bono de Curación de Sangonomiya Kokomi, pero reduce su Prob. CRIT en un 100%."
+          },
+          "src": ""
+        },
         "c1": {
           "name": {
             "en": "At Water's Edge",
@@ -28826,17 +28837,6 @@
             "es": "Mientras está bajo los efectos del manto ceremonial de **Encarnación de las nereidas**, cuando Sangonomiya Kokomi realiza un Ataque Normal o Cargado que tiene efectos curativos con el fin de curar a un personaje con un 80% o más de Vida, obtiene un 40% de Bono de Daño Hydro durante 4 s."
           },
           "src": ""
-        },
-        "passive4": {
-          "name": {
-            "en": "Flawless Strategy",
-            "es": "Estrategia infalible"
-          },
-          "info": {
-            "en": "Sangonomiya Kokomi has a 25% Healing Bonus, but a 100% decrease in CRIT Rate.",
-            "es": "Aumenta en un 25% el Bono de Curación de Sangonomiya Kokomi, pero reduce su Prob. CRIT en un 100%."
-          },
-          "src": ""
         }
       }
     },
@@ -28849,7 +28849,7 @@
         "en": "Eons Adrift",
         "es": "El Caminante Eterno"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -29134,7 +29134,7 @@
         "en": "Treasure of Dream Garden",
         "es": "La Magnate Acaudalada"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -29419,7 +29419,7 @@
         "en": "Uncrowned Lord of the Ocean",
         "es": "La Reina del Océano sin Corona"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -29704,7 +29704,7 @@
         "en": "Sprout of Rebirth",
         "es": "La Promesa en Flor"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -29989,7 +29989,7 @@
         "en": "Canine Warrior",
         "es": "El General Canino"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -30274,7 +30274,7 @@
         "en": "Plane of Euthymia",
         "es": "La Entidad de la Eutimia"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -30559,7 +30559,7 @@
         "en": "Empyrean Reflection",
         "es": "El Espejo del Empíreo"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -30844,7 +30844,7 @@
         "en": "Pillar of Fortitude",
         "es": "El Vigoroso Estratega"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -31129,7 +31129,7 @@
         "en": "Chivalric Blossom",
         "es": "La Heroína no Reconocida"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -31414,7 +31414,7 @@
         "en": "Verdant Strider",
         "es": "El Caminante de la Espesura"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -31699,7 +31699,7 @@
         "en": "Frostflake Heron",
         "es": "La Garza de la Escarcha"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -31995,7 +31995,7 @@
         "en": "Mujina Ninja",
         "es": "La Tejón Ninja"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -32280,7 +32280,7 @@
         "en": "Analytical Harmony",
         "es": "El Detective de la Armonía"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -32565,7 +32565,7 @@
         "en": "Admonishing Instruction",
         "es": "El Instructor Severo"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -32850,7 +32850,7 @@
         "en": "Witch of Purple Rose",
         "es": "La Bruja de las Rosas"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -33135,7 +33135,7 @@
         "en": "Icy Resurrection",
         "es": "La Resurrección del Hielo"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -33420,7 +33420,7 @@
         "en": "Hanamizaka Heroics",
         "es": "El Héroe de Hanamizaka"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -33705,7 +33705,7 @@
         "en": "Windborne Bard",
         "es": "El Bardo Itinerante"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -33990,7 +33990,7 @@
         "en": "Flame-Mane",
         "es": "La Leona Ardiente"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Pyro",
         "es": "Pyro"
@@ -34275,7 +34275,7 @@
         "en": "Kätzlein Cocktail",
         "es": "La Cantinera Felina"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -34560,7 +34560,7 @@
         "en": "Physic of Purity",
         "es": "La Purificadora de las Plantas"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -34845,7 +34845,7 @@
         "en": "Vigilant Yaksha",
         "es": "El Guardián Yaksha"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -35130,7 +35130,7 @@
         "en": "Dance of the Shimmering Wave",
         "es": "La Bailarina de las Olas"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -35415,7 +35415,7 @@
         "en": "Enigmatic Machinist",
         "es": "La Ingeniera Enigmática"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -35700,7 +35700,7 @@
         "en": "Cat Upon the Eaves",
         "es": "La Gata en los Aleros"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Dendro",
         "es": "Dendro"
@@ -35985,7 +35985,7 @@
         "en": "Stage Lucida",
         "es": "La Prima Donna del Escenario"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Geo",
         "es": "Geo"
@@ -36270,7 +36270,7 @@
         "en": "Plenilune Gaze",
         "es": "La Vigía del Plenilunio"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -36555,7 +36555,7 @@
         "en": "Juvenile Galant",
         "es": "El Joven Galante"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -36840,7 +36840,7 @@
         "en": "Judicator of Secrets",
         "es": "El Magistrado de lo Arcano"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Electro",
         "es": "Electro"
@@ -37125,7 +37125,7 @@
         "en": "Golden Vow",
         "es": "La Devota Áurea"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Hydro",
         "es": "Hydro"
@@ -37410,7 +37410,7 @@
         "en": "Coordinates of Clear Frost",
         "es": "El Agrimensor Nieveclara"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Cryo",
         "es": "Cryo"
@@ -37695,7 +37695,7 @@
         "en": "Harmless Sweetie",
         "es": "La Dulzura Inofensiva"
       },
-      "rarity": "4",
+      "rarity": 4,
       "element": {
         "en": "Anemo",
         "es": "Anemo"
@@ -37980,7 +37980,7 @@
         "en": "Dark Side of Dawn",
         "es": "El Amanecer Oscuro"
       },
-      "rarity": "5",
+      "rarity": 5,
       "element": {
         "en": "Pyro",
         "es": "Pyro"

@@ -1,5 +1,53 @@
 import { opendir, writeFile } from 'fs/promises';
-// import charactersLocalData from './data/charactersData.json';
+
+type I18n = {
+  en: string;
+  es: string;
+}
+
+type Image = {
+  name: I18n;
+  info: I18n;
+  src: string;
+}
+
+export interface CharactersData {
+  slug: string;
+  name: I18n;
+  title: I18n;
+  rarity: number;
+  element: I18n;
+  weapontype: I18n;
+  substat: I18n;
+  constellation: I18n;
+  baseStats: {
+    lvls: string[];
+    hp: number[];
+    atk: number[];
+    def: number[];
+    critRate: number[];
+    critDmg: number[];
+    substat: number[];
+  };
+  images: {
+    portrait: Image;
+    splashart: Image;
+    combat1: Image;
+    combat2: Image;
+    combat3: Image;
+    combatsp?: Image;
+    passive1: Image;
+    passive2: Image;
+    passive3: Image;
+    passive4?: Image;
+    c1: Image;
+    c2: Image;
+    c3: Image;
+    c4: Image;
+    c5: Image;
+    c6: Image;
+  };
+}
 
 const CHARS_DATA_PATH = `${process.cwd()}/scripts/data/charactersData.json`;
 
@@ -26,7 +74,7 @@ export const generateLocalData = async (GDB_DIR: string) => {
     const oldLocalData: { [k: string]: any } = await import(CHARS_DATA_PATH);
     writeTo(`${process.cwd()}/scripts/data/charactersDataOld.json`, oldLocalData);
 
-    const localData: { [k: string]: any } = {};
+    const localData: { [char: string]: CharactersData } = {};
     const charFiles = await opendir(`${GDB_DIR}/src/data/English/characters`);
     for await (const charFile of charFiles) {
       if (charFile.name === 'aether.json' || charFile.name === 'lumine.json') { continue; }
@@ -38,9 +86,10 @@ export const generateLocalData = async (GDB_DIR: string) => {
       const constellationsJsonEs = await import(`${GDB_DIR}/src/data/Spanish/constellations/${charFile.name}`);
       const slug = slugify(characterJsonEn.name);
       localData[slug] = {
+        slug,
         name: { en: characterJsonEn.name, es: characterJsonEs.name },
         title: { en: characterJsonEn.title, es: characterJsonEs.title },
-        rarity: characterJsonEn.rarity,
+        rarity: parseInt(characterJsonEn.rarity),
         element: { en: characterJsonEn.element, es: characterJsonEs.element },
         weapontype: { en: characterJsonEn.weapontype, es: characterJsonEs.weapontype },
         substat: { en: characterJsonEn.substat, es: characterJsonEs.substat },
@@ -148,15 +197,6 @@ export const generateLocalData = async (GDB_DIR: string) => {
           },
         },
       };
-
-      if (localData[slug].constellation.en !== localData[slug].constellation.es) {
-        console.log(localData[slug].constellation.es);
-        console.log(localData[slug].constellation.en);
-      }
-
-      // const characterJsonEs = await import(`${GDB_DIR}/src/data/Spanish/characters/${charFile.name}`);
-      // console.log(characterJsonEn, characterJsonEs);
-      // console.log(charFile.name);
     }
     writeTo(CHARS_DATA_PATH, localData);
   } catch (err) {

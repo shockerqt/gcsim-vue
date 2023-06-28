@@ -17,13 +17,14 @@ model User {
 
 model Character {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  slug        String
   name       I18n
   title      I18n
   rarity     Int
   element    I18n
   weapontype I18n
   substat    I18n
-  constellation String
+  constellation I18n
   baseStats  BaseStats
   images     CharacterImages
 }

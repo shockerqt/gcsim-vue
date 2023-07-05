@@ -18,6 +18,12 @@ const table2 = {
     ['Bono de Curación', '99999999'],
     ['Recarga de Energía', '99999999'],
     ['Disminución de Tde', '99999999'],
+    ['Protección de Escudddddddddddo', '99999999'],
+    ['Prob.CRIT.', '50%'],
+    ['Daño CRIT', '250%'],
+    ['Bono de Curación', '99999999'],
+    ['Recarga de Energía', '99999999'],
+    ['Disminución de Tde', '99999999'],
     ['Protección de Escudo', '99999999'],
   ],
 };
@@ -32,11 +38,13 @@ const table3 = {
 </script>
 
 <template>
-  <div class="flex gap-4 items-start flex-wrap justify-center">
-    <div class="flex flex-col gap-4">
+  <div class="flex gap-4 items-start flex-wrap max-w-3xl m-auto">
+    <div class="flex grow flex-col gap-4">
       <SimulatorCharactersStatsTable :table="table1" />
       <SimulatorCharactersStatsTable :table="table3" />
     </div>
-    <SimulatorCharactersStatsTable :table="table2" />
+    <div class="grow">
+      <SimulatorCharactersStatsTable :table="table2" />
+    </div>
   </div>
 </template>

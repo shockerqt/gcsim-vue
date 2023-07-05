@@ -1,6 +1,6 @@
 import { opendir } from 'fs/promises';
-import { slugify, paths, writeData } from './utils';
 import { I18n, Image } from './data';
+import { paths, slugify, writeData } from './utils';
 
 export interface CharacterData {
   slug: string;
@@ -189,13 +189,9 @@ export const createCharactersFromDb = async (save = false) => {
       };
       charactersData.push(characterData);
     }
-    // ADD TRAVELERS
-    // for (const charFile of ['aether.json', 'lumine.json']) {
-
-    // }
 
     charactersData.sort((a, b) => a.slug.localeCompare(b.slug));
-    const localData: {[k: string]: CharacterData} = {};
+    const localData: Record<string, CharacterData> = {};
     charactersData.forEach((character) => { localData[character.slug] = character; });
     if (save) { writeData('charactersDataFromDb', localData); }
     return localData;

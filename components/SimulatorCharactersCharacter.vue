@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary-500 font-bold flex gap-10 flex-wrap">
+  <div class="text-primary-500 font-bold flex gap-10 flex-wrap rounded max-xs:bg-black-500 max-xs:p-4">
     <!--personaje-->
     <div v-for="i of [1,2,3]" class="flex gap-3 grow justify-center">
       <div class="h-full aspect-square base-background-gradient flex-wrap" />

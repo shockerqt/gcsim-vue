@@ -14,6 +14,11 @@ export default <Partial<Config>>{
     },
   ],
   theme: {
+    extend: {
+      screens: {
+        xs: '500px',
+      },
+    },
     colors: {
       transparent: '#00000000',
       black: {

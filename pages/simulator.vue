@@ -20,7 +20,7 @@ const buttons: Ref<TabButton[]> = ref([
 
 <template>
   <div class="p-4">
-    <BaseTabs :buttons="buttons" />
+    <BaseTabs class="my-4" :buttons="buttons" />
     <SimulatorCharacters v-if="buttons[0].state === 'active'" />
     <SimulatorEnemies v-if="buttons[1].state === 'active'" />
     <SimulatorRotation v-if="buttons[2].state === 'active'" />

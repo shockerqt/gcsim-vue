@@ -21,11 +21,11 @@ const handleClick = (button: TabButton) => {
 
 <template>
   <nav class="text-sm font-medium text-center text-black-100">
-    <ul class="flex flex-wrap" :class="{ 'flex-col': column, 'text-start': column }">
+    <ul class="flex flex-wrap gap-4" :class="{ 'flex-col': column, 'text-start': column }">
       <li v-for="button in buttons" :key="button.title">
         <button
           :disabled="button.state === 'active' || button.state === 'disabled'"
-          class="base-tab py-4 pr-6"
+          class="base-tab"
           :class="{ 'active-tab': button.state === 'active',
                     'inactive-tab': button.state === 'inactive',
                     'disabled-tab': button.state === 'disabled' }"

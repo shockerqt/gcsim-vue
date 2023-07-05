@@ -160,7 +160,7 @@
           "en": "**Normal Attack**\nPerforms up to 5 rapid strikes.\n\n**Charged Attack**\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\n\n**Plunging Attack**\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
           "es": "**Ataque Normal**\nRealiza hasta 5 ataques consecutivos con espada.\n\n**Ataque Cargado**\nConsume cierta cantidad de Aguante para desatar un doble golpe de espada.\n\n**Ataque Descendente**\nSe lanza desde el aire para golpear el suelo, dañando a los enemigos cercanos e infligiendo Daño en el AdE en el momento del impacto."
         },
-        "src": ""
+        "src": "https://drive.google.com/uc?id=1HnasbniuQ2aU_k5r8AWt7XxOuR7P7rKq"
       },
       "combat2": {
         "name": {
@@ -171,7 +171,7 @@
           "en": "Albedo creates a Solar Isotoma using alchemy, which deals AoE Geo DMG on appearance.\n\n**Solar Isotoma**\nhas the following properties:\n·When opponents within the Solar Isotoma field take DMG, the Solar Isotoma will generate Transient Blossoms which deal AoE Geo DMG. DMG dealt scales off Albedo's DEF. \n·Transient Blossoms can only be generated once every 2s.\n·When a character is located at the locus of the Solar Isotoma, the Solar Isotoma will accumulate Geo power to form a crystallized platform that lifts the character up to a certain height. Only one crystallized platform can exist at a time.\n·Solar Isotoma is considered a Geo construct. Only one Solar Isotoma created by Albedo himself can exist at a time. \n\n**Hold** to designate the location of the skill.",
           "es": "Crea una isotoma solar que inflige Daño Geo en el AdE.\n\n**Isotoma solar**\nCaracterísticas:\n·Cuando los enemigos situados en el centro del área de la isotoma solar reciben daño, esta se convertirá en una flor fugaz, abriéndose e infligiendo Daño Geo en el AdE proporcional a la DEF de Albedo.\n·Solo puede crearse una flor fugaz cada 2 s.\n·Cuando un personaje se sitúa sobre la isotoma solar, el poder de Geo se concentrará para formar una plataforma cristalizada de cierta altura sobre la que se podrán mantener los personajes.\n·Solamente puede existir al mismo tiempo una isotoma solar creada por Albedo, y esta se considera una creación Geo.\n\n**Mantener pulsado**\nControla la ubicación sobre la que tiene lugar la habilidad."
         },
-        "src": ""
+        "src": "https://drive.google.com/uc?id=1fTw3oNjKtJB0f_q0cYzuxRvZolZ7jBiP"
       },
       "combat3": {
         "name": {
@@ -182,7 +182,7 @@
           "en": "Under Albedo's command, Geo crystals surge and burst forth, dealing AoE Geo DMG in front of him.\nIf a Solar Isotoma created by Albedo himself is on the field, 7 Fatal Blossoms will be generated in the Solar Isotoma field, bursting violently into bloom and dealing AoE Geo DMG.\n\nTectonic Tide DMG and Fatal Blossom DMG will not generate Transient Blossoms.",
           "es": "Albedo ordena a sus cristales Geo que exploten, lanzándolos al frente e infligiendo Daño Geo en el AdE.\nSi en el campo de batalla ya hay una isotoma solar creada por Albedo, creará 7 flores de la muerte dentro del área de la isotoma, provocando una violenta explosión que inflige Daño Geo en el AdE.\n\nEl daño causado por la explosión y las flores de la muerte no creará una flor fugaz."
         },
-        "src": ""
+        "src": "https://drive.google.com/uc?id=1TowvgFi1oJyOXZzYBGxfJLE0On1qdCfD"
       },
       "passive1": {
         "name": {

@@ -1,4 +1,4 @@
-import { CharacterData } from './data';
+import { CharacterData } from '../server/data';
 import { paths, writeData } from './utils';
 
 export interface CharacterImages {

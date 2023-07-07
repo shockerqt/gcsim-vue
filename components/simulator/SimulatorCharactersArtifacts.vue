@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { CharactersState } from './SimulatorCharacters.vue';
-
 const labels = [
   'Set',
   'Lvl',
@@ -12,22 +10,19 @@ const labels = [
   // 'Substats4',
 ];
 
-const charactersState = useState<CharactersState>('simulator-characters');
-const selectedCharacter = useState<number>('simulator-selected-character');
-const selectedCharacterArtifact = useState<number>('simulator-selected-character-artifact', () => 0);
-
+const { state, active } = useSimulator();
 </script>
 
 <template>
-  <div class="grid lg:grid-cols-2 gap-4 justify-center">
+  <div v-if="active !== null" class="grid lg:grid-cols-2 gap-4 justify-center">
     <main class="max-w-lg">
       <header class="w-full flex justify-center items-center mb-6 gap-2 xs:gap-4">
         <button
-          v-for="(artifact, i) in charactersState[selectedCharacter]?.artifacts"
+          v-for="(artifact, i) in state[active]?.artifacts"
           :key="i"
           class="w-full xs:w-20 aspect-square base-background-gradient"
-          :class="{ 'border-2 border-primary-500': selectedCharacterArtifact === i }"
-          @click="selectedCharacterArtifact = i"
+          :class="{ 'border-2 border-primary-500': state[active]?.ui.selectedArtifact === i }"
+          @click="state[active]!.ui.selectedArtifact = i"
         />
       </header>
       <!--buscar un select custom-->
@@ -37,7 +32,7 @@ const selectedCharacterArtifact = useState<number>('simulator-selected-character
         </h2>
         <div v-for="label of labels" :key="label" class="flex items-center justify-between gap-2">
           <label class="font-medium capitalize text-sm xs:text-xs text-black-100 w-24" for="artifactsSet">{{ label }}</label>
-          <SimulatorSelect class="bg-black-600 px-2 py-1 capitalize font-medium rounded text-xs" />
+          <BaseSelect class="bg-black-600 px-2 py-1 capitalize font-medium rounded text-xs" />
         </div>
       </section>
 
@@ -47,7 +42,7 @@ const selectedCharacterArtifact = useState<number>('simulator-selected-character
         </h2>
         <div class="grid grid-cols-2 gap-x-4 gap-y-2">
           <div v-for="label of labels" :key="label" class="flex items-center justify-between gap-2">
-            <SimulatorSelect class="bg-black-600 px-2 py-1 capitalize font-medium rounded text-xs" />
+            <BaseSelect class="bg-black-600 px-2 py-1 capitalize font-medium rounded text-xs" />
           </div>
         </div>
       </section>

@@ -18,6 +18,8 @@ export const createCharactersData = async (save = false) => {
 
     const data = dbJson;
 
+    console.log(data.albedo.baseStats);
+
     for (const slug of Object.keys(data)) {
       const images = data[slug].images;
 
@@ -25,7 +27,10 @@ export const createCharactersData = async (save = false) => {
         data[slug].images[imageSlug].src = imagesJson[slug][imageSlug];
       });
 
-      data[slug].baseStats = statsJson[slug];
+      data[slug].baseStats = {
+        ...statsJson[slug],
+        lvls: dbJson[slug].baseStats.lvls,
+      };
     }
 
     if (save) { writeData('charactersData', data); }

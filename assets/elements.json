@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Anemo",
+    "slug": "anemo"
+    
+  },
+  {
+    "name": "Cryo",
+    "slug": "cryo"
+  },
+  {
+    "name": "Dendro",
+    "slug": "dendro"
+  },
+  {
+    "name": "Electro",
+    "slug": "electro"
+  },
+  {
+    "name": "Geo",
+    "slug": "geo"
+  },
+  {
+    "name": "Hydro",
+    "slug": "hydro"
+  },
+  {
+    "name": "Pyro",
+    "slug": "pyro"
+  }
+]

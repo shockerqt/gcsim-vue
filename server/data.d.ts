@@ -1,17 +1,20 @@
-export type I18n = {
+type I18n = {
   en: string;
   es: string;
 }
 
-export type Image = {
+type Image = {
   name: I18n;
   info: I18n;
   src: string;
 }
 
-export interface CharacterData {
+type DataCharacters = Record<string, DataCharacter>;
+
+interface DataCharacter {
   slug: string;
   name: I18n;
+  simName: string;
   title: I18n;
   rarity: number;
   element: I18n;

@@ -1,16 +1,6 @@
 <script lang="ts" setup>
-interface Character {
-  name: string;
-  fullname: string;
-  title: string;
-  element: string;
-  rarity: number;
-  splashImage: string;
-  talentImages: { [key: string]: string };
-}
-
 const route = useRoute();
-const { data: character } = await useFetch<Character>(`/api/characters/${route.params.name}`);
+const { data: character } = await useFetch(`/api/data/characters/${route.params.name}`);
 
 if (!character.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
@@ -22,7 +12,7 @@ if (!character.value) {
     <div
       class="bg-image"
       :style="{
-        backgroundImage: `url('https://res.cloudinary.com/genshin/image/upload/sprites/${character?.splashImage}.png')`
+        backgroundImage: `url(${character?.images.splashart})`
       }"
     >
       <div class="bg-gradient" />
@@ -43,7 +33,7 @@ if (!character.value) {
             class="text-xl mr-1 text-g2"
           />
         </div>
-        <img class="w-8 ml-3" :src="`/img/elements/${character?.element?.toLowerCase()}.svg`">
+        <img class="w-8 ml-3" :src="`/img/elements/${character?.element?.en.toLowerCase()}.svg`">
       </div>
       <hr class="border-primary-500 border-t my-4">
       <div>
@@ -55,10 +45,10 @@ if (!character.value) {
         </p>
         <div class="flex">
           <img
-            v-for="value in character?.talentImages"
-            :key="value"
+            v-for="value in character?.images"
+            :key="value?.name.en"
             class="w-11 h-11 mr-4"
-            :src="`https://res.cloudinary.com/genshin/image/upload/sprites/${value}.png`"
+            :src="value?.src"
           >
         </div>
       </div>

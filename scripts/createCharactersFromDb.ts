@@ -1,44 +1,43 @@
 import { opendir } from 'fs/promises';
-import { I18n, Image } from './data';
 import { paths, slugify, writeData } from './utils';
 
-export interface CharacterData {
-  slug: string;
-  name: I18n;
-  title: I18n;
-  rarity: number;
-  element: I18n;
-  weapontype: I18n;
-  substat: I18n;
-  constellation: I18n;
-  baseStats: {
-    lvls: string[];
-    hp: number[];
-    atk: number[];
-    def: number[];
-    critRate: number[];
-    critDmg: number[];
-    substat: number[];
-  };
-  images: {
-    portrait: Image;
-    splashart: Image;
-    combat1: Image;
-    combat2: Image;
-    combat3: Image;
-    combatsp?: Image;
-    passive1: Image;
-    passive2: Image;
-    passive3: Image;
-    passive4?: Image;
-    c1: Image;
-    c2: Image;
-    c3: Image;
-    c4: Image;
-    c5: Image;
-    c6: Image;
-  };
-}
+// export interface CharacterData {
+//   slug: string;
+//   name: I18n;
+//   title: I18n;
+//   rarity: number;
+//   element: I18n;
+//   weapontype: I18n;
+//   substat: I18n;
+//   constellation: I18n;
+//   baseStats: {
+//     lvls: string[];
+//     hp: number[];
+//     atk: number[];
+//     def: number[];
+//     critRate: number[];
+//     critDmg: number[];
+//     substat: number[];
+//   };
+//   images: {
+//     portrait: Image;
+//     splashart: Image;
+//     combat1: Image;
+//     combat2: Image;
+//     combat3: Image;
+//     combatsp?: Image;
+//     passive1: Image;
+//     passive2: Image;
+//     passive3: Image;
+//     passive4?: Image;
+//     c1: Image;
+//     c2: Image;
+//     c3: Image;
+//     c4: Image;
+//     c5: Image;
+//     c6: Image;
+//   };
+// }
 
 /**
  * Extract data fron 'genshin-db' repository and
@@ -46,7 +45,7 @@ export interface CharacterData {
  */
 export const createCharactersFromDb = async (save = false) => {
   try {
-    const charactersData: CharacterData[] = [];
+    const charactersData: DataCharacter[] = [];
     const charFiles = await opendir(`${paths.GDB}/src/data/English/talents`);
     for await (const charFile of charFiles) {
       let charactersFilename = charFile.name;
@@ -90,6 +89,7 @@ export const createCharactersFromDb = async (save = false) => {
       const slug = slugify(characterJsonEn.name);
       const characterData = {
         slug,
+        simName: slug.replace(/-/g, ''),
         name: { en: characterJsonEn.name, es: characterJsonEs.name },
         title: { en: characterJsonEn.title, es: characterJsonEs.title },
         rarity: parseInt(characterJsonEn.rarity),
@@ -98,7 +98,7 @@ export const createCharactersFromDb = async (save = false) => {
         substat: { en: characterJsonEn.substat, es: characterJsonEs.substat },
         constellation: { en: characterJsonEn.constellation, es: characterJsonEs.constellation },
         baseStats: {
-          lvls: ['1', '20', '20+', '40', '40+', '50', '50+', '60', '60+', '70', '70+', '80', '80+', '90'],
+          lvls: ['1/20', '20', '20/40', '40', '40/50', '50', '50/60', '60', '60/70', '70', '70/80', '80', '80/90', '90/90'],
           hp: Array.from({ length: 14 }, () => 0),
           atk: Array.from({ length: 14 }, () => 0),
           def: Array.from({ length: 14 }, () => 0),
@@ -191,7 +191,7 @@ export const createCharactersFromDb = async (save = false) => {
     }
 
     charactersData.sort((a, b) => a.slug.localeCompare(b.slug));
-    const localData: Record<string, CharacterData> = {};
+    const localData: DataCharacters = {};
     charactersData.forEach((character) => { localData[character.slug] = character; });
     if (save) { writeData('charactersDataFromDb', localData); }
     return localData;

@@ -1,6 +1,6 @@
 // https://tailwindcss.nuxtjs.org/tailwind/config
-import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
+import type { Config } from 'tailwindcss';
 
 export default <Partial<Config>>{
   plugins: [
@@ -10,8 +10,10 @@ export default <Partial<Config>>{
     'safelisted',
     'md:bg-transparent',
     {
-      pattern: /bg-(t|green|blue)-(100|200|300)/,
+      pattern: /bg-(anemo|cryo|dendro|electro|geo|hydro|pyro|)-(100|200|300|400|500|600|700|800|900)/,
+      variants: ['active', 'hover'],
     },
+
   ],
   theme: {
     extend: {
@@ -20,7 +22,8 @@ export default <Partial<Config>>{
       },
     },
     colors: {
-      transparent: '#00000000',
+      transparent: 'transparent',
+      current: 'currentColor',
       black: {
         100: '#E9E8E8',
         400: '#2C2C2C',
@@ -34,18 +37,18 @@ export default <Partial<Config>>{
         700: '#7B530B',
       },
       error: {
-        300: '#F28585',
+        100: '#F28585',
         500: '#E01414',
         700: '#680A0A',
       },
       anemo: {
-        300: '#94FBEE',
+        100: '#94FBEE',
         500: '#00ECCC',
         700: '#00342E',
       },
       cryo: {
         100: '#BCF3F7',
-        500: '#32DAE5',
+        500: '#2ABDC6',
         700: '#0E575B',
       },
       dendro: {
@@ -69,9 +72,15 @@ export default <Partial<Config>>{
         700: '#02122A',
       },
       pyro: {
-        100: '#F3A07E',
+        100: '#F09670',
+        200: '#ED8C62',
+        300: '#E87747',
+        400: '#E2632B',
         500: '#DD4E10',
-        700: '#541D06',
+        600: '#BF430E',
+        700: '#A0380C',
+        800: '#822E09',
+        900: '#732808',
       },
 
     },

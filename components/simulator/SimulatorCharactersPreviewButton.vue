@@ -1,38 +1,38 @@
 <script lang="ts" setup>
 import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
-import { CharactersState } from './SimulatorCharacters.vue';
 
-const charactersState = useState<CharactersState>('simulator-characters');
+const { state, createEntry, active } = useSimulator();
 
-const selectedCharacter = useState<number>('simulator-selected-character');
+const clickHandler = (n: number) => {
+  active.value = n;
+  if (!state.value[n]) { createEntry(n); }
+};
 
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-2 sm:gap-4">
-    <div v-for="(character, i) in charactersState" :key="i" class="grow">
+    <div v-for="(character, i) in state" :key="i" class="grow">
       <!-- PREVIEW -->
       <button
         class="relative grid place-items-center items-center h-full w-full base-background-gradient"
-        :class="{ 'outline outline-2 outline-primary-500': selectedCharacter === i }"
-        @click="() => selectedCharacter = i"
+        :class="{ 'outline outline-2 outline-primary-500': active === i }"
+        @click="() => clickHandler(i)"
       >
         <template v-if="character">
           <!-- CHARACTER IMAGE + DETAILS -->
           <div class="flex justify-center lg:justify-between base-background-gradient w-full lg:px-3">
             <!-- IMAGE -->
-            <div>
-              <img class="w-20 xs:w-24 aspect-square" src="https://drive.google.com/uc?id=1pjRW-ax7EKSQBInp75df_xh8cl0Rqak3" alt="">
-            </div>
+            <img class="w-full xs:w-24 aspect-square" :src="state[i]?.character.portraitImg" alt="">
             <div class="grid justify-around">
               <!-- STARS -->
               <div class="hidden lg:flex gap-1 text-primary-500 items-center justify-end">
-                <FaIcon v-for="i of [1,2,3,4,5]" :key="i" :icon="faStar" />
+                <FaIcon v-for="k of Array(state[i]?.character.rarity).fill(0)" :key="k" :icon="faStar" />
               </div>
               <!-- SET + WEAPONS -->
               <div class="hidden lg:flex justify-end items-center gap-2">
-                <div v-for="i of [1,2,3]" :key="i" class="h-8 w-8 border-2 border-primary-500 bg-error-500">
-                  {{ i }}
+                <div v-for="k of Array(3)" :key="k" class="h-8 w-8 border-2 border-primary-500 bg-error-500">
+                  {{ k }}
                 </div>
               </div>
             </div>
@@ -40,17 +40,19 @@ const selectedCharacter = useState<number>('simulator-selected-character');
           <!-- CHARACTER NAME -->
           <div class="font-medium py-1 bg-black-600 text-xs lg:text-sm lg:px-3 w-full flex gap-4 items-center justify-center lg:justify-between">
             <p class="text-black-100">
-              Sangonomiya Kokomi
+              {{ state[i]?.character.name }}
             </p>
             <p class="hidden lg:block text-primary-500">
-              90
+              {{ state[i]?.character.lvl }}
             </p>
           </div>
         </template>
         <!-- ADD -->
         <template v-else>
-          <div class="text-black-100">
-            <FaIcon class="text-5xl xs:text-6xl w-20 xs:w-24 aspect-square" :icon="faPlus" />
+          <div class="py-3 w-full grid place-items-center">
+            <div class="text-black-100 w-full aspect-square xs:w-24 grid place-items-center">
+              <FaIcon class="text-4xl xs:text-6xl" :icon="faPlus" />
+            </div>
           </div>
         </template>
       </button>

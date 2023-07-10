@@ -1,5 +1,4 @@
-import { CharacterData } from '../server/data';
-import { paths, writeData } from './utils';
+import { paths, writeData } from './utils.js';
 
 export interface CharacterImages {
   [k: string]: string;
@@ -9,7 +8,7 @@ type CharactersBaseStats = Record<string, CharacterImages>;
 
 /**
  * Extract data fron 'genshin-db' repository and
- * generate a json file with an array of {@link CharacterData}.
+ * generate a json file with an array of {@link DataCharacter}.
  */
 export const createCharactersImages = async (save = false) => {
   try {
@@ -17,7 +16,7 @@ export const createCharactersImages = async (save = false) => {
     const charactersDataJson = (await import(`${paths.DATA}/charactersDataFromDb.json`)).default;
 
     Object.entries(charactersDataJson).forEach(([characterSlug, characterData]) => {
-      const images = (characterData as CharacterData).images;
+      const images = (characterData as DataCharacter).images;
       charactersImages[characterSlug] = {};
       Object.keys(images).forEach((imageSlug) => {
         charactersImages[characterSlug][imageSlug] = '';

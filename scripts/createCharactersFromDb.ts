@@ -1,5 +1,5 @@
 import { opendir } from 'fs/promises';
-import { paths, slugify, writeData } from './utils';
+import { paths, slugify, writeData } from './utils.js';
 
 // export interface CharacterData {
 //   slug: string;
@@ -41,7 +41,7 @@ import { paths, slugify, writeData } from './utils';
 
 /**
  * Extract data fron 'genshin-db' repository and
- * generate a json file with an array of {@link CharacterData}.
+ * generate a json file with an array of {@link DataCharacter}.
  */
 export const createCharactersFromDb = async (save = false) => {
   try {
@@ -59,12 +59,12 @@ export const createCharactersFromDb = async (save = false) => {
       ) {
         charactersFilename = 'aether.json';
       }
-      const characterJsonEn = { ...await import(`${paths.GDB}/src/data/English/characters/${charactersFilename}`) };
-      const characterJsonEs = { ...await import(`${paths.GDB}/src/data/Spanish/characters/${charactersFilename}`) };
-      const talentsJsonEn = await import(`${paths.GDB}/src/data/English/talents/${talentsFilename}`);
-      const talentsJsonEs = await import(`${paths.GDB}/src/data/Spanish/talents/${talentsFilename}`);
-      const constellationsJsonEn = await import(`${paths.GDB}/src/data/English/constellations/${constellationsFilename}`);
-      const constellationsJsonEs = await import(`${paths.GDB}/src/data/Spanish/constellations/${constellationsFilename}`);
+      const characterJsonEn = { ...await import(`${paths.GDB}/src/data/English/characters/${charactersFilename}`, { assert: { type: 'json' } }) };
+      const characterJsonEs = { ...await import(`${paths.GDB}/src/data/Spanish/characters/${charactersFilename}`, { assert: { type: 'json' } }) };
+      const talentsJsonEn = await import(`${paths.GDB}/src/data/English/talents/${talentsFilename}`, { assert: { type: 'json' } });
+      const talentsJsonEs = await import(`${paths.GDB}/src/data/Spanish/talents/${talentsFilename}`, { assert: { type: 'json' } });
+      const constellationsJsonEn = await import(`${paths.GDB}/src/data/English/constellations/${constellationsFilename}`, { assert: { type: 'json' } });
+      const constellationsJsonEs = await import(`${paths.GDB}/src/data/Spanish/constellations/${constellationsFilename}`, { assert: { type: 'json' } });
       if (charactersFilename === 'aether.json') {
         switch (charFile.name) {
           case 'traveleranemo.json':

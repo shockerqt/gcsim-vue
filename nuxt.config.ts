@@ -1,23 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in', // default
-    },
-    layoutTransition: {
-      name: 'layout',
-      mode: 'out-in', // default
-    },
-  },
   devtools: { enabled: true },
   modules: [
+    '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    '@nuxt/image',
   ],
   css: [
     '@/assets/css/main.css',
   ],
+  image: {
+    domains: [
+      'drive.google.com',
+    ],
+    alias: {
+      drive: 'https://drive.google.com/uc?id=',
+    },
+  },
   nitro: {
     storage: {
       // db: {

@@ -29,7 +29,7 @@ export const writeTo = async (path: string, object: Object) => {
 
 export const backupData = async (filename: string) => {
   try {
-    const backup = await import(`${paths.DATA}/${filename}.json`);
+    const backup = await import(`${paths.DATA}/${filename}.json`, { assert: { type: 'json' } });
     if (backup) {
       await writeTo(
       `${paths.DATA}/old/${filename}${filenameVersion()}.json`,

@@ -1,4 +1,4 @@
-import { createCharactersData } from './createCharactersData';
+import { createCharactersData } from './createCharactersData.js';
 
 const run = async () => {
   // await createCharactersFromDb(true);

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Bow",
+    "slug": "bow"
+    
+  },
+  {
+    "name": "Catalyst",
+    "slug": "catalyst"
+  },
+  {
+    "name": "Claymore",
+    "slug": "claymore"
+  },
+  {
+    "name": "Polearm",
+    "slug": "polearm"
+  },
+  {
+    "name": "Sword",
+    "slug": "sword"
+  }
+]

@@ -1,16 +1,16 @@
-import { paths, writeData } from './utils';
+import { paths, writeData } from './utils.js';
 
 /**
  * Extract data fron 'genshin-db' repository and
- * generate a json file with an array of {@link CharacterData}.
+ * generate a json file with an array of {@link DataCharacter}.
  */
 export const createCharactersData = async (save = false) => {
   try {
-    const dbJson = (await import(`${paths.DATA}/charactersDataFromDb.json`)).default;
-    const imagesJson = (await import(`${paths.DATA}/charactersImages.json`)).default;
-    const statsJson = (await import(`${paths.DATA}/charactersStats.json`)).default;
+    const dbJson = (await import(`${paths.DATA}/charactersDataFromDb.json`, { assert: { type: 'json' } })).default;
+    const imagesJson = (await import(`${paths.DATA}/charactersImages.json`, { assert: { type: 'json' } })).default;
+    const statsJson = (await import(`${paths.DATA}/charactersStats.json`, { assert: { type: 'json' } })).default;
 
-    const charactersSlugList = (await import(`${paths.DATA}/charactersSlugList.json`)).default;
+    const charactersSlugList = (await import(`${paths.DATA}/charactersSlugList.json`, { assert: { type: 'json' } })).default;
 
     verifySlugs(dbJson, charactersSlugList);
     verifySlugs(imagesJson, charactersSlugList);

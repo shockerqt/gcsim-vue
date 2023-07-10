@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // this option
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "esm": true,
+  },
+  "include": [
+    "scripts/*.ts"
+  ],
+  "exclude": [
+    "scripts/**/*"
+  ]
+}

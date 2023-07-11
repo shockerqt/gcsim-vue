@@ -3,7 +3,7 @@ import type { H3Event, SessionConfig } from 'h3';
 const sessionConfig: SessionConfig = useRuntimeConfig().auth || {};
 
 export type AuthSession = {
-  id: string;
+  id: number;
   discordToken: string;
   discordId: string;
   name: string;

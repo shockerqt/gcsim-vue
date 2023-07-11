@@ -46,9 +46,14 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    dev: process.env.NODE_ENV === 'development',
     auth: {
       name: 'server-session',
       password: process.env.SECRET || 'asd',
+    },
+    db: {
+      TURSO_DB_URL: process.env.TURSO_DB_URL,
+      TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
     },
     discord: {
       discordClientId: process.env.DISCORD_CLIENT_ID,

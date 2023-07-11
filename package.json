@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "NITRO_PRESET=vercel-edge nuxt build",
     "dev": "drizzle-kit generate:sqlite && nuxt dev",
     "generate": "nuxt generate",
     "lint": "eslint .",
@@ -35,10 +35,12 @@
     "@nuxtjs/i18n": "8.0.0-beta.13",
     "@pinia/nuxt": "^0.4.11",
     "better-sqlite3": "^8.4.0",
+    "bufferutil": "^4.0.7",
     "drizzle-orm": "^0.27.1",
     "nuxt-headlessui": "^1.1.4",
     "pinia": "^2.1.4",
     "ts-node": "^10.9.1",
+    "utf-8-validate": "^6.0.3",
     "vue-select": "4.0.0-beta.6"
   }
 }

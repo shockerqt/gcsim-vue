@@ -1,1 +1,0 @@
-import{V as s,W as u,x as l}from"./entry.677c5567.js";const t=s(()=>{var o;const{loggedIn:e,user:a}=u();if(console.log("LOGGED IN NEW SESSION",e.value,a.value),!e.value&&((o=a.value)==null?void 0:o.role)!=="admin")return l("/")});export{t as default};

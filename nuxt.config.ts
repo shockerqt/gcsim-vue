@@ -44,6 +44,9 @@ export default defineNuxtConfig({
         base: './data/db',
       },
     },
+    future: {
+      nativeSWR: true,
+    },
   },
   runtimeConfig: {
     dev: process.env.NODE_ENV === 'development',

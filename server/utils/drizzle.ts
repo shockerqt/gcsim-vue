@@ -3,6 +3,7 @@ import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { migrate } from 'drizzle-orm/libsql/migrator';
 // DEV
+// @ts-ignore
 import Database from 'better-sqlite3';
 import { drizzle as drizzleDev } from 'drizzle-orm/better-sqlite3';
 import { migrate as migrateDev } from 'drizzle-orm/better-sqlite3/migrator';

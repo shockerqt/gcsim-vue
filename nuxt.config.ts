@@ -23,27 +23,6 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    storage: {
-      // db: {
-      //   driver: 'redis',
-      //   base: 'unstorage',
-      //   host: 'HOSTNAME',
-      //   tls: true as any,
-      //   port: 6380,
-      //   password: 'REDIS_PASSWORD',
-      // },
-      db: {
-        driver: 'fs',
-        base: './data/db',
-      },
-    },
-    // Development
-    devStorage: {
-      db: {
-        driver: 'fs',
-        base: './data/db',
-      },
-    },
     future: {
       nativeSWR: true,
     },

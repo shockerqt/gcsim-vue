@@ -1,33 +1,33 @@
 <script lang="ts" setup>
 import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 
-const { state, createEntry, active } = useSimulator();
+const { entries, selectedEntryIndex, openSelectCharacterModal } = useSimulator();
 
-const clickHandler = (n: number) => {
-  active.value = n;
-  if (!state.value[n]) { createEntry(n); }
+const clickHandler = (index: number) => {
+  selectedEntryIndex.value = index;
+  if (!entries.value[index]) { openSelectCharacterModal(index); }
 };
 
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-2 sm:gap-4">
-    <div v-for="(character, i) in state" :key="i" class="grow">
+    <div v-for="(character, i) in entries" :key="i" class="grow">
       <!-- PREVIEW -->
       <button
         class="relative grid place-items-center items-center h-full w-full base-background-gradient"
-        :class="{ 'outline outline-2 outline-primary-500': active === i }"
-        @click="() => clickHandler(i)"
+        :class="{ 'outline outline-2 outline-primary-500': selectedEntryIndex === i }"
+        @click="clickHandler(i)"
       >
         <template v-if="character">
           <!-- CHARACTER IMAGE + DETAILS -->
           <div class="flex justify-center lg:justify-between base-background-gradient w-full lg:px-3">
             <!-- IMAGE -->
-            <img class="w-full xs:w-24 aspect-square" :src="state[i]?.character.portraitImg" alt="">
+            <img class="w-full xs:w-24 aspect-square" :src="entries[i]?.character.portraitImg" alt="">
             <div class="grid justify-around">
               <!-- STARS -->
               <div class="hidden lg:flex gap-1 text-primary-500 items-center justify-end">
-                <FaIcon v-for="k of Array(state[i]?.character.rarity).fill(0)" :key="k" :icon="faStar" />
+                <FaIcon v-for="k of Array(entries[i]?.character.rarity).fill(0)" :key="k" :icon="faStar" />
               </div>
               <!-- SET + WEAPONS -->
               <div class="hidden lg:flex justify-end items-center gap-2">
@@ -40,10 +40,10 @@ const clickHandler = (n: number) => {
           <!-- CHARACTER NAME -->
           <div class="font-medium py-1 bg-black-600 text-xs lg:text-sm lg:px-3 w-full flex gap-4 items-center justify-center lg:justify-between">
             <p class="text-black-100">
-              {{ state[i]?.character.name }}
+              {{ entries[i]?.character.name }}
             </p>
             <p class="hidden lg:block text-primary-500">
-              {{ state[i]?.character.lvl }}
+              {{ entries[i]?.character.lvl }}
             </p>
           </div>
         </template>

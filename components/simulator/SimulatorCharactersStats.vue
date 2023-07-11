@@ -1,33 +1,32 @@
 <script lang="ts" setup>
+import { Table } from './SimulatorCharactersStatsTable.vue';
 import { SimulatorEntry } from 'composables/useSimulator';
 
-const { state, active } = useSimulator();
+const { selectedEntry } = useSimulator();
 
-const activeCharacterStats = state.value[active.value].stats as SimulatorEntry['stats'];
-
-const table1 = {
+const table1 = (characterStats: SimulatorEntry['stats']): Table => ({
   title: 'Atributos Básicos',
   rows: [
-    ['Vida Máx', activeCharacterStats.hp],
-    ['ATQ', activeCharacterStats.atk],
-    ['DEF', activeCharacterStats.def],
+    ['Vida Máx', characterStats.hp],
+    ['ATQ', characterStats.atk],
+    ['DEF', characterStats.def],
     ['MAESTRÍA ELEMENTAL', 0],
   ],
-};
+});
 
-const table2 = {
+const table2 = (characterStats: SimulatorEntry['stats']): Table => ({
   title: 'Atributos Avanzados',
   rows: [
-    ['Prob.CRIT.', `${activeCharacterStats.critRate * 100}%`],
-    ['Daño CRIT', `${activeCharacterStats.critDmg * 100}%`],
+    ['Prob.CRIT.', `${characterStats.critRate * 100}%`],
+    ['Daño CRIT', `${characterStats.critDmg * 100}%`],
     ['Bono de Curación', 0],
     ['Recarga de Energía', '100%'],
     ['Disminución de Tde', 0],
     ['Protección de Escudo', 0],
   ],
-};
+});
 
-const table3 = {
+const table3: Table = {
   title: 'Atributos Avanzados',
   rows: [
     ['Bono de Daño (Elemento).', '0%'],
@@ -37,13 +36,13 @@ const table3 = {
 </script>
 
 <template>
-  <div class="flex gap-4 items-start flex-wrap max-w-3xl m-auto">
+  <div v-if="selectedEntry" class="flex gap-4 items-start flex-wrap max-w-3xl m-auto">
     <div class="flex grow flex-col gap-4">
-      <SimulatorCharactersStatsTable :table="table1" />
+      <SimulatorCharactersStatsTable :table="table1(selectedEntry.stats)" />
       <SimulatorCharactersStatsTable :table="table3" />
     </div>
     <div class="grow">
-      <SimulatorCharactersStatsTable :table="table2" />
+      <SimulatorCharactersStatsTable :table="table2(selectedEntry.stats)" />
     </div>
   </div>
 </template>

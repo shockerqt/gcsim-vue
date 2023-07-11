@@ -2,7 +2,7 @@
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { TabButton } from '~/components/BaseTabs.vue';
 
-const { state, active } = useSimulator();
+const { selectedEntry } = useSimulator();
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const greaterThanLg = breakpoints.greater('lg');
@@ -24,10 +24,11 @@ const tabButtons: Ref<TabButton[]> = ref([
 
 </script>
 <template>
+  <SimulatorCharactersCharacterModal />
   <SimulatorCharactersPreviewButton />
   <hr class="border border-t-2 border-b-0 border-primary-500 w-full my-4">
 
-  <div v-if="active !== null && state[active]" class="flex gap-x-8 flex-col lg:flex-row">
+  <div v-if="selectedEntry" class="flex gap-x-8 flex-col lg:flex-row">
     <aside class="min-w-[8rem]">
       <BaseTabs class="mb-4" :buttons="tabButtons" :column="greaterThanLg" />
     </aside>

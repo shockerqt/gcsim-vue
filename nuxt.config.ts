@@ -6,10 +6,14 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@nuxt/image',
+    'nuxt-headlessui',
   ],
   css: [
     '@/assets/css/main.css',
   ],
+  headlessui: {
+    prefix: '',
+  },
   image: {
     domains: [
       'drive.google.com',
@@ -54,6 +58,14 @@ export default defineNuxtConfig({
     public: {
       discordClientId: process.env.DISCORD_CLIENT_ID,
       discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
+    },
+  },
+  vite: {
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
     },
   },
 });

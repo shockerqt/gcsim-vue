@@ -279,13 +279,12 @@ const filteredCharacters = computed(() => {
         <div
           class="character-grid-item base-background-gradient aspect-square rounded-xl overflow-hidden"
         >
-          <nuxt-img
-            format="webp"
+          <img
             :class="{ pinned: i === 0 && !!pinnedCharacter}"
             class="character-grid-item-img"
             :src="character.images.portrait.src"
             :alt="character.name.en"
-          />
+          >
         </div>
       </button>
     </TransitionGroup>

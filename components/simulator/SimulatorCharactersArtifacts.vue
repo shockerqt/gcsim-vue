@@ -10,19 +10,19 @@ const labels = [
   // 'Substats4',
 ];
 
-const { state, active } = useSimulator();
+const { entries, selectedEntryIndex } = useSimulator();
 </script>
 
 <template>
-  <div v-if="active !== null" class="grid lg:grid-cols-2 gap-4 justify-center">
+  <div v-if="selectedEntryIndex !== null" class="grid lg:grid-cols-2 gap-4 justify-center">
     <main class="max-w-lg">
       <header class="w-full flex justify-center items-center mb-6 gap-2 xs:gap-4">
         <button
-          v-for="(artifact, i) in state[active]?.artifacts"
+          v-for="(artifact, i) in entries[selectedEntryIndex]?.artifacts"
           :key="i"
           class="w-full xs:w-20 aspect-square base-background-gradient"
-          :class="{ 'border-2 border-primary-500': state[active]?.ui.selectedArtifact === i }"
-          @click="state[active]!.ui.selectedArtifact = i"
+          :class="{ 'border-2 border-primary-500': entries[selectedEntryIndex]?.ui.selectedArtifact === i }"
+          @click="entries[selectedEntryIndex]!.ui.selectedArtifact = i"
         />
       </header>
       <!--buscar un select custom-->

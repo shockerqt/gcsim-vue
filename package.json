@@ -30,9 +30,11 @@
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@headlessui/vue": "^1.7.14",
     "@nuxtjs/i18n": "8.0.0-beta.13",
     "@pinia/nuxt": "^0.4.11",
     "@prisma/client": "^4.16.2",
+    "nuxt-headlessui": "^1.1.4",
     "pinia": "^2.1.4",
     "ts-node": "^10.9.1",
     "vue-select": "4.0.0-beta.6"

@@ -1,48 +1,87 @@
 <script lang="ts" setup>
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
+type Option = {
+  id: string;
+  name: string;
+}
+
 const props = defineProps<{
   options?: string[] | [string, string][];
   handler?:(value: string) => void;
   value?: string;
 }>();
 
-const openedMenu = ref(false);
-const container = ref(null);
-
-onClickOutside(container, () => { if (openedMenu.value) { openedMenu.value = false; } });
-
 const optionObjects = props.options === undefined
   ? []
   : props.options.map((option) => {
     if (typeof option === 'string') {
-      return { value: option, label: option };
+      return { id: option, name: option };
     } else {
-      return { value: option[0], label: option[1] };
+      return { id: option[0], name: option[1] };
     }
   });
 
-const selectedLabel = (value: string | undefined) => value && optionObjects.find(option => option.value === value)?.label;
+const selectedValue = ref(optionObjects.find(({ id }) => id === props.value));
+
+watch(selectedValue, (newValue: Option | undefined) => {
+  if (newValue?.id && props.handler) { props.handler(newValue.id); }
+});
 
 </script>
 
 <template>
-  <div ref="container" class="flex select-none w-full h-7 items-center relative bg-black-600 rounded px-2 py-1 cursor-pointer" @click="openedMenu = !openedMenu">
-    <input type="hidden" :value="value">
-    <div class="grow py-0.5">
-      {{ selectedLabel(value) }}
-    </div>
-    <FaIcon class="w-4" :icon="faCaretDown" />
-    <ul v-if="openedMenu" class="absolute top-8 left-0 z-50 bg-black-600 rounded w-full overflow-hidden">
-      <li
-        v-for="option of optionObjects"
-        :key="option.value"
-        :class="{ 'bg-primary-700 text-black-700': value === option.value, 'hover:bg-black-500': value !== option.value }"
-        class="py-1 px-2 my-1"
-        @click="() => handler ? handler(option.value) : () => {}"
-      >
-        {{ option.label }}
-      </li>
-    </ul>
+  <div>
+    <Listbox v-model="selectedValue">
+      <div class="relative mt-1">
+        <ListboxButton
+          class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+        >
+          <span class="block truncate">{{ selectedValue?.name || 'SELECCIONAR' }}</span>
+          <span
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+          >
+            <FaIcon
+              :icon="faCaretDown"
+              class="h-5 w-5 text-gray-400"
+              aria-hidden="true"
+            />
+          </span>
+        </ListboxButton>
+
+        <transition
+          leave-active-class="transition duration-100 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <ListboxOptions
+            class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          >
+            <ListboxOption
+              v-for="option in optionObjects"
+              v-slot="{ active, selected }"
+              :key="option.name"
+              :value="option"
+              as="template"
+            >
+              <li
+                :class="[
+                  active ? 'bg-amber-100 text-amber-900' : 'text-gray-900',
+                  'relative cursor-default select-none py-2 pl-10 pr-4',
+                ]"
+              >
+                <span
+                  :class="[
+                    selected ? 'font-medium' : 'font-normal',
+                    'block truncate',
+                  ]"
+                >{{ option.name }}
+                </span>
+              </li>
+            </ListboxOption>
+          </ListboxOptions>
+        </transition>
+      </div>
+    </Listbox>
   </div>
 </template>

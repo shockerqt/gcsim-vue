@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-interface Table {
+export interface Table {
   title: string;
-  rows: [string, string][];
+  rows: [string | number, string | number][];
 }
 
 defineProps<{ table: Table }>();

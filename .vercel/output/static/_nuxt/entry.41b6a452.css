@@ -1,0 +1,1 @@
+.layout-enter-active,.layout-leave-active,.page-enter-active,.page-leave-active{transition-duration:.15s;transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1)}.layout-enter-from,.layout-leave-to,.page-enter-from,.page-leave-to{opacity:0}

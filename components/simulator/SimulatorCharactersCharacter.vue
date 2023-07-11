@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-const { state, active, setCharacter } = useSimulator();
-const isOpen = useState<boolean>('is-open-modal');
+const { selectedEntry, selectedEntryIndex, openSelectCharacterModal } = useSimulator();
 
 const lvlsOptions = [
   '1/20', '20', '20/40', '40', '40/50', '50', '50/60', '60', '60/70', '70', '70/80', '80', '80/90', '90/90',
@@ -11,36 +10,38 @@ const lvlsOptions = [
 </script>
 
 <template>
-  <BaseModal>
-    <CharactersList
-      :handler="async (slug: string) => {
-        await setCharacter(slug)
-        isOpen = false;
-      }"
-    />
-  </BaseModal>
-  <div v-if="active !== null" class="text-primary-500 grid md:grid-cols-2 xl:grid-cols-3 gap-10 rounded max-xs:bg-black-500 max-xs:p-4">
-    <!--personaje-->
+  <div v-if="selectedEntry && selectedEntryIndex" class="text-primary-500 grid md:grid-cols-2 xl:grid-cols-3 gap-10 rounded max-xs:bg-black-500 max-xs:p-4">
+    <!-- CHARACTER COLUMN -->
     <div class="flex gap-3 grow justify-center items-center">
-      <div class="aspect-square base-background-gradient flex-wrap">
-        <img class="h-32" :src="state[active]?.character.portraitImg" alt="">
+      <div class="aspect-square base-background-gradient flex-wrap cursor-pointer">
+        <img
+          alt="Select character"
+          width="128"
+          height="128"
+          :src="selectedEntry.character.portraitImg"
+          @click="openSelectCharacterModal(selectedEntryIndex)"
+        >
       </div>
       <div class="grow flex flex-col gap-2">
-        <BaseSelect class="font-medium text-xs" :value="state[active]!.character.name" @click="isOpen = true" />
-        <!-- lvls -->
+        <!-- SELECT CHARACTER -->
+        <button class="font-medium text-xs" @click="openSelectCharacterModal(selectedEntryIndex)">
+          {{ selectedEntry!.character.name }}
+        </button>
+        <!-- SELECT LVL -->
         <BaseSelect
-          :value="state[active]?.character.lvl"
+          :value="selectedEntry?.character.lvl"
           :options="lvlsOptions"
-          :handler="(value: string) => { if (active !== null) state[active]!.character.lvl = value }"
+          :handler="(value: string) => { if (selectedEntry) selectedEntry.character.lvl = value }"
           class="font-medium text-xs"
         />
+        <!-- SELECT .. -->
         <BaseSelect class="font-medium text-xs" />
         <p class="font-medium text-xs flex gap-2 items-center my-1">
-          <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" /> {{ state[active]?.character.substat }}
+          <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" /> {{ selectedEntry?.character.substat }}
         </p>
       </div>
     </div>
-    <!-- weapon -->
+    <!-- WEAPON COLUMN -->
     <div class="flex gap-3 grow justify-center">
       <div class="h-full aspect-square base-background-gradient flex-wrap" />
       <div class="grow flex flex-col gap-2">

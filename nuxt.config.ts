@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@nuxt/image',
@@ -12,11 +11,16 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: '',
   },
-  // nitro: {
-  //   future: {
-  //     nativeSWR: true,
-  //   },
-  // },
+  nitro: {
+    future: {
+      nativeSWR: true,
+    },
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
+    },
+  },
   runtimeConfig: {
     dev: process.env.NODE_ENV === 'development',
     auth: {
@@ -37,12 +41,12 @@ export default defineNuxtConfig({
       discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
     },
   },
-  vite: {
-    vue: {
-      script: {
-        defineModel: true,
-        propsDestructure: true,
-      },
-    },
-  },
+  // vite: {
+  //   vue: {
+  //     script: {
+  //       defineModel: true,
+  //       propsDestructure: true,
+  //     },
+  //   },
+  // },
 });

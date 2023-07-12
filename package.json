@@ -4,13 +4,17 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "drizzle-kit generate:sqlite && nuxt dev",
+    "dev": "pnpm db:dev:generate && nuxt dev",
     "generate": "nuxt generate",
     "lint": "eslint .",
     "preview": "nuxt preview",
     "postinstall": "drizzle-kit generate:sqlite && nuxt prepare",
-    "db:data": "node --loader ts-node/esm  ./scripts/index.ts",
-    "db:generate": "drizzle-kit generate:sqlite"
+    "data:generate": "node --loader ts-node/esm  ./scripts/index.ts",
+    "db:dev:generate": "drizzle-kit generate:sqlite --config=drizzle.config.dev.ts",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:push": "drizzle-kit push:sqlite",
+    "db:introspect": "drizzle-kit introspect:sqlite",
+    "studio": "drizzle-kit studio"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -19,30 +23,26 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^20.4.1",
-    "@vueuse/components": "^10.2.1",
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
     "drizzle-kit": "^0.19.4",
     "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
     "nuxt": "^3.6.2",
-    "postcss": "^8.4.25"
+    "postcss": "^8.4.25",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@headlessui/vue": "^1.7.14",
     "@libsql/client": "^0.3.0",
-    "@nuxtjs/i18n": "8.0.0-beta.13",
-    "@pinia/nuxt": "^0.4.11",
     "better-sqlite3": "^8.4.0",
     "bufferutil": "^4.0.7",
     "drizzle-orm": "^0.27.2",
-    "eslint-config-prettier": "^8.8.0",
     "nuxt-headlessui": "^1.1.4",
-    "pinia": "^2.1.4",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
-    "ts-node": "^10.9.1",
     "utf-8-validate": "^6.0.3"
   }
 }

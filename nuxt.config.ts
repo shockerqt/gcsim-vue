@@ -12,11 +12,11 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: '',
   },
-  nitro: {
-    future: {
-      nativeSWR: true,
-    },
-  },
+  // nitro: {
+  //   future: {
+  //     nativeSWR: true,
+  //   },
+  // },
   runtimeConfig: {
     dev: process.env.NODE_ENV === 'development',
     auth: {

@@ -1,3 +1,1 @@
-<template>
-  Rotation
-</template>
+<template>Rotation</template>

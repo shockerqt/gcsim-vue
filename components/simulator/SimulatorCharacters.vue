@@ -21,21 +21,29 @@ const tabButtons: Ref<TabButton[]> = ref([
     state: 'inactive',
   },
 ]);
-
 </script>
 <template>
   <SimulatorCharactersCharacterModal />
   <SimulatorCharactersPreviewButton />
-  <hr class="border border-t-2 border-b-0 border-primary-500 w-full my-4">
+  <hr class="my-4 w-full border border-b-0 border-t-2 border-primary-500" />
 
-  <div v-if="selectedEntry" class="flex gap-x-8 flex-col lg:flex-row">
+  <div v-if="selectedEntry" class="flex flex-col gap-x-8 lg:flex-row">
     <aside class="min-w-[8rem]">
       <BaseTabs class="mb-4" :buttons="tabButtons" :column="greaterThanLg" />
     </aside>
     <div class="grow">
-      <SimulatorCharactersCharacter v-if="tabButtons[0].state ===`active`" class="grow" />
-      <SimulatorCharactersArtifacts v-if="tabButtons[1].state ===`active`" class="grow" />
-      <SimulatorCharactersStats v-if="tabButtons[2].state ===`active`" class="grow" />
+      <SimulatorCharactersCharacter
+        v-if="tabButtons[0].state === `active`"
+        class="grow"
+      />
+      <SimulatorCharactersArtifacts
+        v-if="tabButtons[1].state === `active`"
+        class="grow"
+      />
+      <SimulatorCharactersStats
+        v-if="tabButtons[2].state === `active`"
+        class="grow"
+      />
     </div>
   </div>
 </template>

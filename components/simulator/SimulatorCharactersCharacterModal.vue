@@ -1,12 +1,14 @@
 <script lang="ts" setup>
-
 const { setCharacter, selectCharacterModalState } = useSimulator();
-
 </script>
 
 <template>
   <TransitionRoot appear :show="selectCharacterModalState.open" as="template">
-    <Dialog as="div" class="relative z-10" @close="selectCharacterModalState.open = false">
+    <Dialog
+      as="div"
+      class="relative z-10"
+      @close="selectCharacterModalState.open = false"
+    >
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -32,7 +34,9 @@ const { setCharacter, selectCharacterModalState } = useSimulator();
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
-            <DialogPanel class="w-full max-w-screen-lg transform overflow-hidden rounded-2xl bg-black-700 p-6 text-left align-middle shadow-xl transition-all">
+            <DialogPanel
+              class="w-full max-w-screen-lg transform overflow-hidden rounded-2xl bg-black-700 p-6 text-left align-middle shadow-xl transition-all"
+            >
               <CharactersList
                 :handler="async (slug: string) => {
                   if (selectCharacterModalState.open) {

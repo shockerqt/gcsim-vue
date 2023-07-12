@@ -655,24 +655,19 @@ const getConstellations = (page: number) => {
   const entries = Object.entries(constellations);
   return entries[page];
 };
-
 </script>
 
 <template>
   <div>
     <article class="text-black-100">
-      <button class="text-xl" @click="page--">
-        -
-      </button>
+      <button class="text-xl" @click="page--">-</button>
       {{ page }}
-      <input v-model="page" type="number">
-      <button class="text-xl" @click="page++">
-        +
-      </button>
+      <input v-model="page" type="number" />
+      <button class="text-xl" @click="page++">+</button>
       <h1>{{ getConstellations(page)[0] }}</h1>
       <section>
         <div v-for="image in getConstellations(page)[1]" :key="image">
-          <img :src="image" alt="">
+          <img :src="image" alt="" />
         </div>
       </section>
     </article>

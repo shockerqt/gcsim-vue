@@ -13,17 +13,23 @@ type CharactersBaseStats = Record<string, CharacterImages>;
 export const createCharactersImages = async (save = false) => {
   try {
     const charactersImages: CharactersBaseStats = {};
-    const charactersDataJson = (await import(`${paths.DATA}/charactersDataFromDb.json`)).default;
+    const charactersDataJson = (
+      await import(`${paths.DATA}/charactersDataFromDb.json`)
+    ).default;
 
-    Object.entries(charactersDataJson).forEach(([characterSlug, characterData]) => {
-      const images = (characterData as DataCharacter).images;
-      charactersImages[characterSlug] = {};
-      Object.keys(images).forEach((imageSlug) => {
-        charactersImages[characterSlug][imageSlug] = '';
-      });
-    });
+    Object.entries(charactersDataJson).forEach(
+      ([characterSlug, characterData]) => {
+        const images = (characterData as DataCharacter).images;
+        charactersImages[characterSlug] = {};
+        Object.keys(images).forEach((imageSlug) => {
+          charactersImages[characterSlug][imageSlug] = '';
+        });
+      }
+    );
 
-    if (save) { writeData('charactersImages', charactersImages); }
+    if (save) {
+      writeData('charactersImages', charactersImages);
+    }
     return charactersImages;
   } catch (err) {
     console.error(err);

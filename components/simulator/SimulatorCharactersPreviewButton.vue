@@ -1,13 +1,15 @@
 <script lang="ts" setup>
 import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 
-const { entries, selectedEntryIndex, openSelectCharacterModal } = useSimulator();
+const { entries, selectedEntryIndex, openSelectCharacterModal } =
+  useSimulator();
 
 const clickHandler = (index: number) => {
   selectedEntryIndex.value = index;
-  if (!entries.value[index]) { openSelectCharacterModal(index); }
+  if (!entries.value[index]) {
+    openSelectCharacterModal(index);
+  }
 };
-
 </script>
 
 <template>
@@ -15,42 +17,64 @@ const clickHandler = (index: number) => {
     <div v-for="(character, i) in entries" :key="i" class="grow">
       <!-- PREVIEW -->
       <button
-        class="relative grid place-items-center items-center h-full w-full base-background-gradient"
-        :class="{ 'outline outline-2 outline-primary-500': selectedEntryIndex === i }"
+        class="base-background-gradient relative grid h-full w-full place-items-center items-center"
+        :class="{
+          'outline outline-2 outline-primary-500': selectedEntryIndex === i,
+        }"
         @click="clickHandler(i)"
       >
         <template v-if="character">
           <!-- CHARACTER IMAGE + DETAILS -->
-          <div class="flex justify-center lg:justify-between base-background-gradient w-full lg:px-3">
+          <div
+            class="base-background-gradient flex w-full justify-center lg:justify-between lg:px-3"
+          >
             <!-- IMAGE -->
-            <img class="w-full xs:w-24 aspect-square" :src="entries[i]?.character.portraitImg" alt="">
+            <img
+              class="aspect-square w-full xs:w-24"
+              :src="entries[i]?.character.portraitImg"
+              alt=""
+            />
             <div class="grid justify-around">
               <!-- STARS -->
-              <div class="hidden lg:flex gap-1 text-primary-500 items-center justify-end">
-                <FaIcon v-for="k of Array(entries[i]?.character.rarity).fill(0)" :key="k" :icon="faStar" />
+              <div
+                class="hidden items-center justify-end gap-1 text-primary-500 lg:flex"
+              >
+                <FaIcon
+                  v-for="k of Array(entries[i]?.character.rarity).fill(0)"
+                  :key="k"
+                  :icon="faStar"
+                />
               </div>
               <!-- SET + WEAPONS -->
-              <div class="hidden lg:flex justify-end items-center gap-2">
-                <div v-for="k of Array(3)" :key="k" class="h-8 w-8 border-2 border-primary-500 bg-error-500">
+              <div class="hidden items-center justify-end gap-2 lg:flex">
+                <div
+                  v-for="k of Array(3)"
+                  :key="k"
+                  class="h-8 w-8 border-2 border-primary-500 bg-error-500"
+                >
                   {{ k }}
                 </div>
               </div>
             </div>
           </div>
           <!-- CHARACTER NAME -->
-          <div class="font-medium py-1 bg-black-600 text-xs lg:text-sm lg:px-3 w-full flex gap-4 items-center justify-center lg:justify-between">
+          <div
+            class="flex w-full items-center justify-center gap-4 bg-black-600 py-1 text-xs font-medium lg:justify-between lg:px-3 lg:text-sm"
+          >
             <p class="text-black-100">
               {{ entries[i]?.character.name }}
             </p>
-            <p class="hidden lg:block text-primary-500">
+            <p class="hidden text-primary-500 lg:block">
               {{ entries[i]?.character.lvl }}
             </p>
           </div>
         </template>
         <!-- ADD -->
         <template v-else>
-          <div class="py-3 w-full grid place-items-center">
-            <div class="text-black-100 w-full aspect-square xs:w-24 grid place-items-center">
+          <div class="grid w-full place-items-center py-3">
+            <div
+              class="grid aspect-square w-full place-items-center text-black-100 xs:w-24"
+            >
               <FaIcon class="text-4xl xs:text-6xl" :icon="faPlus" />
             </div>
           </div>
@@ -64,26 +88,26 @@ const clickHandler = (index: number) => {
 </template>
 
 <style>
-  @media screen and (min-width: 1280px) {
-    .preview-button-header {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas:
-        "img stars"
-        "img build";
-    }
+@media screen and (min-width: 1280px) {
+  .preview-button-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'img stars'
+      'img build';
   }
+}
 
-  .preview-button-header-img {
-    grid-area: img;
-  }
+.preview-button-header-img {
+  grid-area: img;
+}
 
-  .preview-button-header-stars {
-    grid-area: stars;
-  }
+.preview-button-header-stars {
+  grid-area: stars;
+}
 
-  .preview-button-header-build {
-    grid-area: build;
-  }
+.preview-button-header-build {
+  grid-area: build;
+}
 </style>

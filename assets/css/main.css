@@ -1,4 +1,4 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://rsms.me/inter/inter.css');
 
 :root {
   @apply bg-black-700 text-black-100;
@@ -8,7 +8,9 @@
 }
 
 @supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
+  :root {
+    font-family: 'Inter var', sans-serif;
+  }
 }
 
 body {
@@ -17,5 +19,5 @@ body {
 }
 
 .base-background-gradient {
-  background: linear-gradient(135deg, #1E1E1E 20%, #2C2C2C 80%);
+  background: linear-gradient(135deg, #1e1e1e 20%, #2c2c2c 80%);
 }

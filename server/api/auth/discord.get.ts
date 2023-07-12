@@ -20,7 +20,6 @@ export default defineEventHandler(async (event) => {
       const discordResponse = await fetchUser(token);
       const data = await discordResponse.json();
       const dbResponse = await loginHandler(data);
-      console.log(dbResponse);
       await session.update({
         id: dbResponse.id,
         discordId: dbResponse.discordId,

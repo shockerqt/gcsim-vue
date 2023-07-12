@@ -6,11 +6,27 @@ import { paths, writeData } from './utils.js';
  */
 export const createCharactersData = async (save = false) => {
   try {
-    const dbJson = (await import(`${paths.DATA}/charactersDataFromDb.json`, { assert: { type: 'json' } })).default;
-    const imagesJson = (await import(`${paths.DATA}/charactersImages.json`, { assert: { type: 'json' } })).default;
-    const statsJson = (await import(`${paths.DATA}/charactersStats.json`, { assert: { type: 'json' } })).default;
+    const dbJson = (
+      await import(`${paths.DATA}/charactersDataFromDb.json`, {
+        assert: { type: 'json' },
+      })
+    ).default;
+    const imagesJson = (
+      await import(`${paths.DATA}/charactersImages.json`, {
+        assert: { type: 'json' },
+      })
+    ).default;
+    const statsJson = (
+      await import(`${paths.DATA}/charactersStats.json`, {
+        assert: { type: 'json' },
+      })
+    ).default;
 
-    const charactersSlugList = (await import(`${paths.DATA}/charactersSlugList.json`, { assert: { type: 'json' } })).default;
+    const charactersSlugList = (
+      await import(`${paths.DATA}/charactersSlugList.json`, {
+        assert: { type: 'json' },
+      })
+    ).default;
 
     verifySlugs(dbJson, charactersSlugList);
     verifySlugs(imagesJson, charactersSlugList);
@@ -33,7 +49,9 @@ export const createCharactersData = async (save = false) => {
       };
     }
 
-    if (save) { writeData('charactersData', data); }
+    if (save) {
+      writeData('charactersData', data);
+    }
     return data;
   } catch (err) {
     console.error(err);
@@ -42,9 +60,13 @@ export const createCharactersData = async (save = false) => {
 
 const verifySlugs = (data: object, charactersSlugList: string[]) => {
   const length = charactersSlugList.length;
-  if (Object.keys(data).length !== length) { throw new Error('Slugs length don\'t match'); }
+  if (Object.keys(data).length !== length) {
+    throw new Error("Slugs length don't match");
+  }
   const dataSlugs = Object.keys(data);
   Object.keys(verifySlugs).forEach((slug) => {
-    if (!dataSlugs.includes(slug)) { throw new Error('Data doesn\'t include all the characters'); }
+    if (!dataSlugs.includes(slug)) {
+      throw new Error("Data doesn't include all the characters");
+    }
   });
 };

@@ -36,7 +36,10 @@ const table3: Table = {
 </script>
 
 <template>
-  <div v-if="selectedEntry" class="flex gap-4 items-start flex-wrap max-w-3xl m-auto">
+  <div
+    v-if="selectedEntry"
+    class="m-auto flex max-w-3xl flex-wrap items-start gap-4"
+  >
     <div class="flex grow flex-col gap-4">
       <SimulatorCharactersStatsTable :table="table1(selectedEntry.stats)" />
       <SimulatorCharactersStatsTable :table="table3" />

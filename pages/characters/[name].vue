@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 const route = useRoute();
-const { data: character } = await useFetch(`/api/data/characters/${route.params.name}`);
+const { data: character } = await useFetch(
+  `/api/data/characters/${route.params.name}`
+);
 
 if (!character.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
@@ -12,12 +14,12 @@ if (!character.value) {
     <div
       class="bg-image"
       :style="{
-        backgroundImage: `url(${character?.images.splashart})`
+        backgroundImage: `url(${character?.images.splashart})`,
       }"
     >
       <div class="bg-gradient" />
     </div>
-    <div class="relative max-w-2xl w-full ml-auto mr-10 p-4">
+    <div class="relative ml-auto mr-10 w-full max-w-2xl p-4">
       <!-- BG CLIP -->
       <!-- <div
         class="absolute -z-10 top-0 bottom-0 -left-1/2 -right-0"
@@ -30,29 +32,32 @@ if (!character.value) {
             v-for="key in character?.rarity"
             :key="key"
             icon="star"
-            class="text-xl mr-1 text-g2"
+            class="text-g2 mr-1 text-xl"
           />
         </div>
-        <img class="w-8 ml-3" :src="`/img/elements/${character?.element?.en.toLowerCase()}.svg`">
+        <img
+          class="ml-3 w-8"
+          :src="`/img/elements/${character?.element?.en.toLowerCase()}.svg`"
+        />
       </div>
-      <hr class="border-primary-500 border-t my-4">
+      <hr class="my-4 border-t border-primary-500" />
       <div>
-        <p class="text-black-100 font-bold text-3xl">
+        <p class="text-3xl font-bold text-black-100">
           {{ character?.name }}
         </p>
-        <p class="text-black-500 font-bold text-xl mb-3">
+        <p class="mb-3 text-xl font-bold text-black-500">
           {{ character?.title }}
         </p>
         <div class="flex">
           <img
             v-for="value in character?.images"
             :key="value?.name.en"
-            class="w-11 h-11 mr-4"
+            class="mr-4 h-11 w-11"
             :src="value?.src"
-          >
+          />
         </div>
       </div>
-      <hr class="border-primary-500 border-t my-4">
+      <hr class="my-4 border-t border-primary-500" />
       <div class="max-h-64 overflow-auto">
         <CharacterTeamPreview />
         <CharacterTeamPreview />
@@ -81,6 +86,11 @@ if (!character.value) {
 .bg-gradient {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.8), black);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.8),
+    black
+  );
 }
 </style>

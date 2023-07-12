@@ -3,7 +3,7 @@ type GenshinIcon = {
   viewBox: [string, string];
   colors: (0 | 1)[];
   paths: string[];
-}
+};
 
 const icons: Record<string, GenshinIcon> = {
   bow: {
@@ -99,7 +99,6 @@ const icons: Record<string, GenshinIcon> = {
       'M173.4,206.4c31.7-27.8,39-46.3,31.8-63s-27.2-10-27.2-10c17.1-17.7,31.5-14.4,39.5-9.9c4.8,2.8,8.7,7,11,12c6.5,13.8,0.6,27.1-9.4,38.4c6.3,0.5,14.1,3.2,18.6,12.4c0,0-4.6-4.8-11-5.6s-12.7-1.2-17.6,2.8l0,0C192.8,197.4,173.4,206.4,173.4,206.4z',
       'M253.2,92.8c1.1-8.1,7.8-14.2,15.9-14.6l20.4-0.8l-4.8,16.8c-2.5,8.7-11,14.3-20,13.1l-13.1-1.8L253.2,92.8z',
       'M300.3,175l-10,6.6c-4.5,3-10.4,2.6-14.5-0.9l-7.9-6.8l-0.6-0.5l0.8-0.6l7.5-5.5c4.2-3.1,10-3.1,14.2,0L300.3,175z',
-
     ],
   },
   electro: {
@@ -138,14 +137,12 @@ const icons: Record<string, GenshinIcon> = {
       'M169.9,227c0,0,27.4-8.6,27.4-30s-40.7-59.3-74.1-10c0,0,31.7-15.5,45.6,5S169.9,227,169.9,227z',
     ],
   },
-
 };
 
 defineProps<{
   icon: keyof typeof icons;
   colorClasses?: [string, string];
 }>();
-
 </script>
 
 <template>
@@ -154,6 +151,11 @@ defineProps<{
     class="inline align-[-0.125em]"
     :viewBox="`0 0 ${icons[icon].viewBox[0]} ${icons[icon].viewBox[1]}`"
   >
-    <path v-for="(path, i) of icons[icon].paths" :key="i" :class="colorClasses?.[icons[icon].colors[i]] || 'fill-current'" :d="path" />
+    <path
+      v-for="(path, i) of icons[icon].paths"
+      :key="i"
+      :class="colorClasses?.[icons[icon].colors[i]] || 'fill-current'"
+      :d="path"
+    />
   </svg>
 </template>

@@ -15,7 +15,6 @@ const buttons: Ref<TabButton[]> = ref([
     state: 'inactive',
   },
 ]);
-
 </script>
 
 <template>

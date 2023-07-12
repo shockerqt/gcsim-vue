@@ -3,6 +3,8 @@ export default defineNuxtRouteMiddleware(() => {
 
   console.log('LOGGED IN NEW SESSION', loggedIn.value, user.value);
   if (!loggedIn.value) {
-    if (user.value?.role !== 'admin') { return navigateTo('/'); }
+    if (user.value?.role !== 'admin') {
+      return navigateTo('/');
+    }
   }
 });

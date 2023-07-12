@@ -1,7 +1,7 @@
 type ArtifactsSet = {
   name: string;
   count: number;
-}
+};
 
 type Artifact = {
   name: string;
@@ -19,16 +19,14 @@ type Stats = {
   critRate: number;
   critDmg: number;
   substat: number;
-}
+};
 
-type CharactersModal =
-  | { open: false }
-  | { open: true, entryId: number }
+type CharactersModal = { open: false } | { open: true; entryId: number };
 
 export interface SimulatorEntry {
   ui: {
     selectedArtifact: number | null;
-  },
+  };
   character: {
     name: string;
     slug: string;
@@ -43,9 +41,9 @@ export interface SimulatorEntry {
     portraitImg: string;
   };
   weapon: {
-    name: string,
-    lvl: string,
-    refine: number,
+    name: string;
+    lvl: string;
+    refine: number;
   };
   artifactsSets: ArtifactsSet[];
   artifacts: (Artifact | null)[];
@@ -54,25 +52,41 @@ export interface SimulatorEntry {
 
 export const useSimulator = () => {
   const lang = 'en';
-  const entries = useState<(SimulatorEntry | null)[]>('simulatorEntries', () => [null, null, null, null]);
-  const selectedEntryIndex = useState<number | null>('simulatorSelectedEntryIndex', () => null);
+  const entries = useState<(SimulatorEntry | null)[]>(
+    'simulatorEntries',
+    () => [null, null, null, null]
+  );
+  const selectedEntryIndex = useState<number | null>(
+    'simulatorSelectedEntryIndex',
+    () => null
+  );
   const selectedEntry = computed<SimulatorEntry | null>({
-    get () {
-      return (selectedEntryIndex.value && entries.value[selectedEntryIndex.value]) || null;
+    get() {
+      return (
+        (selectedEntryIndex.value && entries.value[selectedEntryIndex.value]) ||
+        null
+      );
     },
-    set (value) {
+    set(value) {
       if (selectedEntryIndex.value && entries.value[selectedEntryIndex.value]) {
         entries.value[selectedEntryIndex.value] = value;
       }
     },
   });
 
-  const selectCharacterModalState = useState<CharactersModal>('simulatorSelectCharacterModal', () => ({ open: false }));
+  const selectCharacterModalState = useState<CharactersModal>(
+    'simulatorSelectCharacterModal',
+    () => ({ open: false })
+  );
 
   const setCharacter = async (slug: string, index: number) => {
     // new character data
-    const { data: { value: characterData } } = await useFetch(`/api/data/characters/${slug}`);
-    if (!characterData) { throw createError('Couldn\'t find character on db'); }
+    const {
+      data: { value: characterData },
+    } = await useFetch(`/api/data/characters/${slug}`);
+    if (!characterData) {
+      throw createError("Couldn't find character on db");
+    }
 
     // old character data
     const currentState = entries.value[index];
@@ -88,7 +102,9 @@ export const useSimulator = () => {
         simName: characterData.simName,
         substat: characterData.substat[lang],
         rarity: characterData.rarity,
-        lvl: currentState?.character.lvl || characterData.baseStats.lvls[baseStatsIndex],
+        lvl:
+          currentState?.character.lvl ||
+          characterData.baseStats.lvls[baseStatsIndex],
         cons: characterData.rarity === 4 ? 6 : 0,
         c1: currentState?.character.c1 || 9,
         c2: currentState?.character.c2 || 9,
@@ -100,15 +116,8 @@ export const useSimulator = () => {
         lvl: currentState?.weapon.lvl || '90/90',
         refine: 1,
       },
-      artifactsSets: [
-      ],
-      artifacts: [
-        null,
-        null,
-        null,
-        null,
-        null,
-      ],
+      artifactsSets: [],
+      artifacts: [null, null, null, null, null],
       stats: {
         hp: characterData.baseStats.hp[baseStatsIndex],
         atk: characterData.baseStats.atk[baseStatsIndex],

@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     prefix: '',
   },
   nitro: {
-    preset: 'node-server',
+    // preset: 'node-server',
     future: {
       nativeSWR: true,
     },

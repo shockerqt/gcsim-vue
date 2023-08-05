@@ -54,21 +54,25 @@ export const useSimulator = () => {
   const lang = 'en';
   const entries = useState<(SimulatorEntry | null)[]>(
     'simulatorEntries',
-    () => [null, null, null, null]
+    () => [null, null, null, null],
   );
   const selectedEntryIndex = useState<number | null>(
     'simulatorSelectedEntryIndex',
-    () => null
+    () => null,
   );
   const selectedEntry = computed<SimulatorEntry | null>({
     get() {
       return (
-        (selectedEntryIndex.value && entries.value[selectedEntryIndex.value]) ||
+        (selectedEntryIndex.value != null &&
+          entries.value[selectedEntryIndex.value]) ||
         null
       );
     },
     set(value) {
-      if (selectedEntryIndex.value && entries.value[selectedEntryIndex.value]) {
+      if (
+        selectedEntryIndex.value != null &&
+        entries.value[selectedEntryIndex.value]
+      ) {
         entries.value[selectedEntryIndex.value] = value;
       }
     },
@@ -76,7 +80,7 @@ export const useSimulator = () => {
 
   const selectCharacterModalState = useState<CharactersModal>(
     'simulatorSelectCharacterModal',
-    () => ({ open: false })
+    () => ({ open: false }),
   );
 
   const setCharacter = async (slug: string, index: number) => {

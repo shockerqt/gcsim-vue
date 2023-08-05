@@ -15,7 +15,7 @@ const { entries, selectedEntryIndex } = useSimulator();
 
 <template>
   <div
-    v-if="selectedEntryIndex !== null"
+    v-if="selectedEntryIndex != null"
     class="grid justify-center gap-4 lg:grid-cols-2"
   >
     <main class="max-w-lg">

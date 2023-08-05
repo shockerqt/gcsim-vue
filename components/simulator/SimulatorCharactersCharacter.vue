@@ -34,7 +34,7 @@ const constellations = [
 
 <template>
   <div
-    v-if="selectedEntry && selectedEntryIndex"
+    v-if="selectedEntry && selectedEntryIndex != null"
     class="grid gap-10 rounded text-primary-500 max-xs:bg-black-500 max-xs:p-4 md:grid-cols-2 xl:grid-cols-3"
   >
     <!-- CHARACTER COLUMN -->
@@ -56,25 +56,23 @@ const constellations = [
           class="text-xs font-medium"
           @click="openSelectCharacterModal(selectedEntryIndex)"
         >
-          {{ selectedEntry!.character.name }}
+          {{ selectedEntry.character.name }}
         </button>
         <!-- SELECT LVL -->
         <BaseSelect
-          :value="selectedEntry?.character.lvl"
+          v-model="selectedEntry.character.lvl"
           :options="lvlsOptions"
-          :handler="(value: string) => { if (selectedEntry) selectedEntry.character.lvl = value }"
           class="text-xs font-medium"
         />
         <!-- SELECT CONSTELLATIONS -->
         <BaseSelect
-          :value="selectedEntry?.character.cons"
+          v-model="selectedEntry.character.cons"
           :options="constellations"
-          :handler="(value: number) => { if (selectedEntry) selectedEntry.character.cons = value }"
           class="text-xs font-medium"
         />
         <p class="my-1 flex items-center gap-2 text-xs font-medium">
           <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
-          {{ selectedEntry?.character.substat }}
+          {{ selectedEntry.character.substat }}
         </p>
       </div>
     </div>

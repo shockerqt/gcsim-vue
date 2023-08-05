@@ -1,5 +1,11 @@
-<script lang="ts" setup generic="T">
+<script
+  lang="ts"
+  generic="T extends string | number | boolean | object | null | undefined"
+  setup
+>
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
+const modelValue = defineModel<T>();
 
 type Option = {
   label: string;
@@ -14,26 +20,31 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const selectedOption = ref<Option | undefined>(
-  props.options?.find(({ value }) => value === props.value),
-) as Ref<Option | undefined>;
+const getLabel = (value?: T) => {
+  const option = props.options?.find((option) => option.value === value);
+  return option?.label || '';
+};
 
-watch(selectedOption, (newValue) => {
-  if (newValue !== undefined && props.handler) {
-    props.handler(newValue.value);
-  }
-});
+// const selectedOption = ref<Option | undefined>(
+//   props.options?.find(({ value }) => value === props.value),
+// ) as Ref<Option | undefined>;
+
+// watch(selectedOption, (newValue) => {
+//   if (newValue !== undefined && props.handler) {
+//     props.handler(newValue.value);
+//   }
+// });
 </script>
 
 <template>
   <div>
-    <Listbox v-model="selectedOption">
+    <Listbox v-model="modelValue">
       <div class="relative mt-1">
         <ListboxButton
           class="bg-white focus-visible:border-indigo-500 focus-visible:ring-white focus-visible:ring-offset-orange-300 relative w-full cursor-default rounded-lg py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm"
         >
           <span class="block truncate">{{
-            selectedOption?.label || 'SELECCIONAR'
+            getLabel(modelValue) || 'SELECCIONAR'
           }}</span>
           <span
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
@@ -58,7 +69,7 @@ watch(selectedOption, (newValue) => {
               v-for="option in options"
               v-slot="{ active, selected }"
               :key="option.label"
-              :value="option"
+              :value="option.value"
               as="template"
             >
               <li

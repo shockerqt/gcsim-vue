@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@nuxt/image',
@@ -15,6 +14,11 @@ export default defineNuxtConfig({
   nitro: {
     future: {
       nativeSWR: true,
+    },
+    esbuild: {
+      options: {
+        target: 'esnext',
+      },
     },
   },
   runtimeConfig: {
@@ -37,12 +41,12 @@ export default defineNuxtConfig({
       discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
     },
   },
-  vite: {
-    vue: {
-      script: {
-        defineModel: true,
-        propsDestructure: true,
-      },
-    },
-  },
+  // vite: {
+  //   vue: {
+  //     script: {
+  //       defineModel: true,
+  //       propsDestructure: true,
+  //     },
+  //   },
+  // },
 });

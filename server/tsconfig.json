@@ -1,5 +1,8 @@
 {
   "extends": "../.nuxt/tsconfig.server.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true
+  },
   "exclude": [
     "../scripts/genshin-db/**/**.*"
   ]

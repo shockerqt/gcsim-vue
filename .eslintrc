@@ -1,15 +1,7 @@
 {
   "root": true,
-  "extends": ["@nuxtjs/eslint-config-typescript", "prettier"],
-  "rules": {
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": [
-      "error",
-      "always",
-      {
-        "omitLastInOneLineClassBody": true
-      }
-    ],
-    "semi-style": ["error", "last"]
-  }
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "prettier"
+  ]
 }

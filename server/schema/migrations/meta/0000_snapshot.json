@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "f65054dc-19b8-47e4-9389-bcc5fcfc7ada",
-  "prevId": "76a1513f-2d41-4594-9377-c7bea6a54eb0",
+  "id": "633f9168-29c4-4a91-bc25-1685b1d2d922",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "users": {
       "name": "users",
@@ -47,12 +47,15 @@
       "indexes": {
         "discordIdx": {
           "name": "discordIdx",
-          "columns": ["discordId"],
+          "columns": [
+            "discordId"
+          ],
           "isUnique": true
         }
       },
       "foreignKeys": {},
-      "compositePrimaryKeys": {}
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {},

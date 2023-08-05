@@ -1,28 +1,32 @@
 // PROD
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
-import { migrate } from 'drizzle-orm/libsql/migrator';
 // DEV
-// @ts-ignore
 import Database from 'better-sqlite3';
 import { drizzle as drizzleDev } from 'drizzle-orm/better-sqlite3';
-import { migrate as migrateDev } from 'drizzle-orm/better-sqlite3/migrator';
-
-const initDev = () => {
-  const sqlite = new Database('sqlite.db');
-  return drizzleDev(sqlite);
-};
+import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
 
 const init = () => {
-  const client = createClient({ url: 'DATABASE_URL', authToken: 'DATABASE_AUTH_TOKEN' });
-  return drizzle(client);
+  try {
+    const runtimeConfig = useRuntimeConfig();
+    // DEV: BETTER-SQLITE3
+    if (runtimeConfig.dev) {
+      const sqlite = new Database('sqlite.db');
+      const db = drizzleDev(sqlite);
+      migrate(db, { migrationsFolder: './migrations/dev' });
+      return db;
+    }
+    // PROD: TURSO-DB
+    else {
+      const client = createClient({
+        url: runtimeConfig.db.TURSO_DB_URL,
+        authToken: runtimeConfig.db.TURSO_AUTH_TOKEN,
+      });
+      return drizzle(client);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-export const db = useRuntimeConfig().dev ? initDev() : init();
-
-if (useRuntimeConfig().dev) {
-  console.info('RUNNING MIGRATIONS');
-  migrateDev(db as ReturnType<typeof initDev>, { migrationsFolder: './drizzle' });
-} else {
-  migrate(db as ReturnType<typeof init>, { migrationsFolder: './drizzle' });
-}
+export const db = init();

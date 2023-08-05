@@ -5,20 +5,30 @@ const { selectedEntry, selectedEntryIndex, openSelectCharacterModal } =
   useSimulator();
 
 const lvlsOptions = [
-  '1/20',
-  '20',
-  '20/40',
-  '40',
-  '40/50',
-  '50',
-  '50/60',
-  '60',
-  '60/70',
-  '70',
-  '70/80',
-  '80',
-  '80/90',
-  '90/90',
+  { label: '1/20', value: '1/20' },
+  { label: '20', value: '20' },
+  { label: '20/40', value: '20/40' },
+  { label: '40', value: '40' },
+  { label: '40/50', value: '40/50' },
+  { label: '50', value: '50' },
+  { label: '50/60', value: '50/60' },
+  { label: '60', value: '60' },
+  { label: '60/70', value: '60/70' },
+  { label: '70', value: '70' },
+  { label: '70/80', value: '70/80' },
+  { label: '80', value: '80' },
+  { label: '80/90', value: '80/90' },
+  { label: '90/90', value: '90/90' },
+];
+
+const constellations = [
+  { label: 'C0', value: 0 },
+  { label: 'C1', value: 1 },
+  { label: 'C2', value: 2 },
+  { label: 'C3', value: 3 },
+  { label: 'C4', value: 4 },
+  { label: 'C5', value: 5 },
+  { label: 'C6', value: 6 },
 ];
 </script>
 
@@ -55,8 +65,13 @@ const lvlsOptions = [
           :handler="(value: string) => { if (selectedEntry) selectedEntry.character.lvl = value }"
           class="text-xs font-medium"
         />
-        <!-- SELECT .. -->
-        <BaseSelect class="text-xs font-medium" />
+        <!-- SELECT CONSTELLATIONS -->
+        <BaseSelect
+          :value="selectedEntry?.character.cons"
+          :options="constellations"
+          :handler="(value: number) => { if (selectedEntry) selectedEntry.character.cons = value }"
+          class="text-xs font-medium"
+        />
         <p class="my-1 flex items-center gap-2 text-xs font-medium">
           <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
           {{ selectedEntry?.character.substat }}

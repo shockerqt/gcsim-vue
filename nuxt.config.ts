@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     prefix: '',
   },
   nitro: {
+    preset: 'node-server',
     future: {
       nativeSWR: true,
     },
@@ -41,12 +42,8 @@ export default defineNuxtConfig({
       discordRedirectUri: process.env.DISCORD_REDIRECT_URI,
     },
   },
-  // vite: {
-  //   vue: {
-  //     script: {
-  //       defineModel: true,
-  //       propsDestructure: true,
-  //     },
-  //   },
-  // },
+  vue: {
+    defineModel: true,
+    propsDestructure: true,
+  },
 });

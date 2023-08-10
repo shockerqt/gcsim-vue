@@ -4,7 +4,24 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 const { selectedEntry, selectedEntryIndex, openSelectCharacterModal } =
   useSimulator();
 
-const lvlsOptions = [
+const characterLvlsOptions = [
+  { label: '1/20', value: '1/20' },
+  { label: '20', value: '20' },
+  { label: '20/40', value: '20/40' },
+  { label: '40', value: '40' },
+  { label: '40/50', value: '40/50' },
+  { label: '50', value: '50' },
+  { label: '50/60', value: '50/60' },
+  { label: '60', value: '60' },
+  { label: '60/70', value: '60/70' },
+  { label: '70', value: '70' },
+  { label: '70/80', value: '70/80' },
+  { label: '80', value: '80' },
+  { label: '80/90', value: '80/90' },
+  { label: '90/90', value: '90/90' },
+];
+
+const weaponLvlsOptions = [
   { label: '1/20', value: '1/20' },
   { label: '20', value: '20' },
   { label: '20/40', value: '20/40' },
@@ -29,6 +46,14 @@ const constellations = [
   { label: 'C4', value: 4 },
   { label: 'C5', value: 5 },
   { label: 'C6', value: 6 },
+];
+
+const refinements = [
+  { label: 'R1', value: 1 },
+  { label: 'R2', value: 2 },
+  { label: 'R3', value: 3 },
+  { label: 'R4', value: 4 },
+  { label: 'R5', value: 5 },
 ];
 </script>
 
@@ -61,7 +86,7 @@ const constellations = [
         <!-- SELECT LVL -->
         <BaseSelect
           v-model="selectedEntry.character.lvl"
-          :options="lvlsOptions"
+          :options="characterLvlsOptions"
           class="text-xs font-medium"
         />
         <!-- SELECT CONSTELLATIONS -->
@@ -81,8 +106,17 @@ const constellations = [
       <div class="base-background-gradient aspect-square h-full flex-wrap" />
       <div class="flex grow flex-col gap-2">
         <BaseSelect class="text-xs font-medium" />
-        <BaseSelect class="text-xs font-medium" />
-        <BaseSelect class="text-xs font-medium" />
+        <!-- SELECT LVL -->
+        <BaseSelect
+          v-model="selectedEntry.weapon.lvl"
+          :options="weaponLvlsOptions"
+          class="text-xs font-medium"
+        />
+        <BaseSelect
+          v-model="selectedEntry.weapon.refine"
+          :options="refinements"
+          class="text-xs font-medium"
+        />
         <div class="grid grid-cols-3 place-items-center justify-items-center">
           <p class="my-1 flex items-center gap-2 text-xs font-medium">
             <FaIcon
@@ -90,7 +124,7 @@ const constellations = [
               height="1.5em"
               :icon="faPaperPlane"
             />
-            {{ 'xx' }}
+            {{ selectedEntry.weapon.mainStat }}
           </p>
           <hr class="h-3/4 border-r border-r-primary-500" />
           <p class="my-1 flex items-center gap-2 text-xs font-medium">
@@ -99,7 +133,7 @@ const constellations = [
               height="1.5em"
               :icon="faPaperPlane"
             />
-            {{ 'yy' }}
+            {{ selectedEntry.weapon.substat }}
           </p>
         </div>
       </div>

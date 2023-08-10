@@ -1,44 +1,6 @@
 import { opendir } from 'fs/promises';
 import { paths, slugify, writeData } from './utils.js';
 
-// export interface CharacterData {
-//   slug: string;
-//   name: I18n;
-//   title: I18n;
-//   rarity: number;
-//   element: I18n;
-//   weapontype: I18n;
-//   substat: I18n;
-//   constellation: I18n;
-//   baseStats: {
-//     lvls: string[];
-//     hp: number[];
-//     atk: number[];
-//     def: number[];
-//     critRate: number[];
-//     critDmg: number[];
-//     substat: number[];
-//   };
-//   images: {
-//     portrait: Image;
-//     splashart: Image;
-//     combat1: Image;
-//     combat2: Image;
-//     combat3: Image;
-//     combatsp?: Image;
-//     passive1: Image;
-//     passive2: Image;
-//     passive3: Image;
-//     passive4?: Image;
-//     c1: Image;
-//     c2: Image;
-//     c3: Image;
-//     c4: Image;
-//     c5: Image;
-//     c6: Image;
-//   };
-// }
-
 /**
  * Extract data fron 'genshin-db' repository and
  * generate a json file with an array of {@link DataCharacter}.
@@ -109,7 +71,7 @@ export const createCharactersFromDb = async (save = false) => {
         characterJsonEs.name = `Viajero ${characterJsonEs.element}`;
       }
       const slug = slugify(characterJsonEn.name);
-      const characterData = {
+      const characterData: DataCharacter = {
         slug,
         simName: slug.replace(/-/g, ''),
         name: { en: characterJsonEn.name, es: characterJsonEs.name },
@@ -126,22 +88,6 @@ export const createCharactersFromDb = async (save = false) => {
           es: characterJsonEs.constellation,
         },
         baseStats: {
-          lvls: [
-            '1/20',
-            '20',
-            '20/40',
-            '40',
-            '40/50',
-            '50',
-            '50/60',
-            '60',
-            '60/70',
-            '70',
-            '70/80',
-            '80',
-            '80/90',
-            '90/90',
-          ],
           hp: Array.from({ length: 14 }, () => 0),
           atk: Array.from({ length: 14 }, () => 0),
           def: Array.from({ length: 14 }, () => 0),
@@ -151,13 +97,25 @@ export const createCharactersFromDb = async (save = false) => {
         },
         images: {
           portrait: {
-            name: 'portrait',
-            info: `Image ${characterJsonEn.name}`,
+            name: {
+              en: 'portrait',
+              es: 'retrato',
+            },
+            info: {
+              en: `Image ${characterJsonEn.name}`,
+              es: `Imagen ${characterJsonEs.name}`,
+            },
             src: '',
           },
           splashart: {
-            name: 'splashart',
-            info: `Splash Art ${characterJsonEn.name}`,
+            name: {
+              en: 'splashart',
+              es: 'splashart',
+            },
+            info: {
+              en: `Splash Art ${characterJsonEn.name}`,
+              es: `Splash Art ${characterJsonEs.name}`,
+            },
             src: '',
           },
           combat1: {
@@ -261,7 +219,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c1.name,
               es: constellationsJsonEs.c1.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c1.effect,
               es: constellationsJsonEs.c1.effect,
             },
@@ -272,7 +230,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c2.name,
               es: constellationsJsonEs.c2.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c2.effect,
               es: constellationsJsonEs.c2.effect,
             },
@@ -283,7 +241,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c3.name,
               es: constellationsJsonEs.c3.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c3.effect,
               es: constellationsJsonEs.c3.effect,
             },
@@ -294,7 +252,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c4.name,
               es: constellationsJsonEs.c4.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c4.effect,
               es: constellationsJsonEs.c4.effect,
             },
@@ -305,7 +263,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c5.name,
               es: constellationsJsonEs.c5.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c5.effect,
               es: constellationsJsonEs.c5.effect,
             },
@@ -316,7 +274,7 @@ export const createCharactersFromDb = async (save = false) => {
               en: constellationsJsonEn.c6.name,
               es: constellationsJsonEs.c6.name,
             },
-            effect: {
+            info: {
               en: constellationsJsonEn.c6.effect,
               es: constellationsJsonEs.c6.effect,
             },

@@ -3,17 +3,15 @@ import forms from '@tailwindcss/forms';
 import type { Config } from 'tailwindcss';
 
 export default <Partial<Config>>{
-  plugins: [
-    forms,
-  ],
+  plugins: [forms],
   safelist: [
     'safelisted',
     'md:bg-transparent',
     {
-      pattern: /bg-(anemo|cryo|dendro|electro|geo|hydro|pyro|)-(100|200|300|400|500|600|700|800|900)/,
+      pattern:
+        /bg-(anemo|cryo|dendro|electro|geo|hydro|pyro|)-(100|200|300|400|500|600|700|800|900)/,
       variants: ['active', 'hover'],
     },
-
   ],
   theme: {
     extend: {
@@ -24,12 +22,17 @@ export default <Partial<Config>>{
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      white: '#FFFFFF',
       black: {
-        100: '#E9E8E8',
-        400: '#2C2C2C',
-        500: '#3A3A3A',
-        600: '#1E1E1E',
-        700: '#101010',
+        100: '#BCBBBB',
+        200: '#A5A5A5',
+        300: '#8F8E8E',
+        400: '#727272',
+        500: '#575656',
+        600: '#3A3A3A',
+        700: '#2C2C2C',
+        800: '#1E1E1E',
+        900: '#101010',
       },
       primary: {
         100: '#FBCB74',
@@ -82,7 +85,6 @@ export default <Partial<Config>>{
         800: '#822E09',
         900: '#732808',
       },
-
     },
   },
 };

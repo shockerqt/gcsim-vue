@@ -1,13 +1,13 @@
 type I18n = {
   en: string;
   es: string;
-}
+};
 
 type Image = {
   name: I18n;
   info: I18n;
   src: string;
-}
+};
 
 type DataCharacters = Record<string, DataCharacter>;
 
@@ -22,7 +22,6 @@ interface DataCharacter {
   substat: I18n;
   constellation: I18n;
   baseStats: {
-    lvls: string[];
     hp: number[];
     atk: number[];
     def: number[];
@@ -47,5 +46,23 @@ interface DataCharacter {
     c4: Image;
     c5: Image;
     c6: Image;
+  };
+}
+
+interface DataWeapon {
+  slug: string;
+  name: I18n;
+  effect: I18n;
+  effectName: I18n;
+  description: I18n;
+  weapontype: I18n;
+  rarity: number;
+  lore: I18n;
+  baseStats: {
+    atk: number[];
+    substat: number[];
+  };
+  images: {
+    portrait: Image;
   };
 }

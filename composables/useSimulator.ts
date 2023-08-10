@@ -44,6 +44,8 @@ export interface SimulatorEntry {
     name: string;
     lvl: string;
     refine: number;
+    mainStat: string;
+    substat: string;
   };
   artifactsSets: ArtifactsSet[];
   artifacts: (Artifact | null)[];
@@ -119,6 +121,8 @@ export const useSimulator = () => {
         name: 'favoniussword',
         lvl: currentState?.weapon.lvl || '90/90',
         refine: 1,
+        mainStat: 'atk',
+        substat: 'er',
       },
       artifactsSets: [],
       artifacts: [null, null, null, null, null],

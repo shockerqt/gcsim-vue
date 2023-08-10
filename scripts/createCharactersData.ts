@@ -6,7 +6,7 @@ import { paths, writeData } from './utils.js';
  */
 export const createCharactersData = async (save = false) => {
   try {
-    const dbJson = (
+    const dbJson: DataCharacters = (
       await import(`${paths.DATA}/charactersDataFromDb.json`, {
         assert: { type: 'json' },
       })
@@ -43,10 +43,7 @@ export const createCharactersData = async (save = false) => {
         data[slug].images[imageSlug].src = imagesJson[slug][imageSlug];
       });
 
-      data[slug].baseStats = {
-        ...statsJson[slug],
-        lvls: dbJson[slug].baseStats.lvls,
-      };
+      data[slug].baseStats = statsJson[slug];
     }
 
     if (save) {

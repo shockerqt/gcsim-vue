@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "module": "ESNext", // this option
-    "esModuleInterop": true
+    "baseUrl": ".",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "dist"
   },
   "ts-node": {
     "esm": true,
   },
   "include": [
-    "scripts/*.ts"
+    "./*",
+    "../server/data.d.ts"
   ],
   "exclude": [
-    "scripts/**/*"
+    "./genshin-db/*"
   ]
 }

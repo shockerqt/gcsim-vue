@@ -1,9 +1,15 @@
 import { createCharactersData } from './createCharactersData.js';
+import { createCharactersFromDb } from './createCharactersFromDb.js';
 
 const run = async () => {
-  // await createCharactersFromDb(true);
-  // const stats = await createCharactersImages();
-  await createCharactersData(true);
+  // Generate characters data
+  console.log('Generating characters data');
+  try {
+    await createCharactersFromDb();
+    await createCharactersData();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 run();

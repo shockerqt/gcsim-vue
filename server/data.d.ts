@@ -52,16 +52,22 @@ interface DataCharacter {
 interface DataWeapon {
   slug: string;
   name: I18n;
-  effect: I18n;
-  effectName: I18n;
+  effect?: I18n;
+  effectName?: I18n;
   description: I18n;
   weapontype: I18n;
   rarity: number;
   lore: I18n;
+  substat: string;
   baseStats: {
     atk: number[];
-    substat: number[];
+    substat?: number[];
   };
+  r1?: [number, number];
+  r2?: [number, number];
+  r3?: [number, number];
+  r4?: [number, number];
+  r5?: [number, number];
   images: {
     portrait: Image;
   };

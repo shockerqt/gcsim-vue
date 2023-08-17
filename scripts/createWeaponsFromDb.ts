@@ -16,6 +16,7 @@ export const createWeaponsFromDb = async (save = false) => {
       const weaponFileName = weaponFile.name.split('.')[0];
       if (!(weaponFileName in weaponsBasestats)) {
         console.log(weaponFileName);
+        continue;
       }
 
       const weaponJsonEn = JSON.parse(
@@ -62,9 +63,9 @@ export const createWeaponsFromDb = async (save = false) => {
           substat: weaponJsonEn.substat,
         }),
         baseStats: {
-          atk: [],
+          atk: weaponsBasestats[weaponFileName].baseStats,
           ...(weaponJsonEn.substat && {
-            substat: [],
+            substat: weaponsBasestats[weaponFileName].substats,
           }),
         },
         images: {
@@ -117,4 +118,4 @@ export const createWeaponsFromDb = async (save = false) => {
   }
 };
 
-createWeaponsFromDb();
+createWeaponsFromDb(true);

@@ -22,6 +22,9 @@ type Stats = {
 };
 
 type CharactersModal = { open: false } | { open: true; entryId: number };
+type WeaponsModal =
+  | { open: false }
+  | { open: true; entryId: number; fixedWeapontype: string };
 
 export interface SimulatorEntry {
   ui: {
@@ -32,6 +35,7 @@ export interface SimulatorEntry {
     slug: string;
     simName: string;
     rarity: number;
+    weapontype: string;
     substat: string;
     lvl: string;
     cons: number;
@@ -42,10 +46,15 @@ export interface SimulatorEntry {
   };
   weapon: {
     name: string;
+    slug: string;
     lvl: string;
     refine: number;
+    rarity: number;
     mainStat: string;
     substat: string;
+    weapontype: string;
+    effect?: string;
+    effectName?: string;
   };
   artifactsSets: ArtifactsSet[];
   artifacts: (Artifact | null)[];
@@ -85,6 +94,11 @@ export const useSimulator = () => {
     () => ({ open: false }),
   );
 
+  const selectWeaponModalState = useState<WeaponsModal>(
+    'simulatorSelectWeaponModal',
+    () => ({ open: false }),
+  );
+
   const setCharacter = async (slug: string, index: number) => {
     // new character data
     const {
@@ -97,7 +111,6 @@ export const useSimulator = () => {
     // old character data
     const currentState = entries.value[index];
 
-    const baseStatsIndex = characterData.baseStats.lvls.length - 1;
     entries.value[index] = {
       ui: {
         selectedArtifact: null,
@@ -107,10 +120,9 @@ export const useSimulator = () => {
         slug,
         simName: characterData.simName,
         substat: characterData.substat[lang],
+        weapontype: characterData.weapontype[lang],
         rarity: characterData.rarity,
-        lvl:
-          currentState?.character.lvl ||
-          characterData.baseStats.lvls[baseStatsIndex],
+        lvl: '90/90',
         cons: characterData.rarity === 4 ? 6 : 0,
         c1: currentState?.character.c1 || 9,
         c2: currentState?.character.c2 || 9,
@@ -119,20 +131,69 @@ export const useSimulator = () => {
       },
       weapon: {
         name: 'favoniussword',
+        slug: 'favoniussword',
         lvl: currentState?.weapon.lvl || '90/90',
         refine: 1,
+        rarity: 4,
+        weapontype: 'sword',
         mainStat: 'atk',
         substat: 'er',
       },
       artifactsSets: [],
       artifacts: [null, null, null, null, null],
       stats: {
-        hp: characterData.baseStats.hp[baseStatsIndex],
-        atk: characterData.baseStats.atk[baseStatsIndex],
-        def: characterData.baseStats.def[baseStatsIndex],
-        critRate: characterData.baseStats.critRate[baseStatsIndex],
-        critDmg: characterData.baseStats.critDmg[baseStatsIndex],
-        substat: characterData.baseStats.substat[baseStatsIndex],
+        hp: characterData.baseStats.hp[characterData.baseStats.hp.length - 1],
+        atk: characterData.baseStats.atk[
+          characterData.baseStats.atk.length - 1
+        ],
+        def: characterData.baseStats.def[
+          characterData.baseStats.def.length - 1
+        ],
+        critRate:
+          characterData.baseStats.critRate[
+            characterData.baseStats.critRate.length - 1
+          ],
+        critDmg:
+          characterData.baseStats.critDmg[
+            characterData.baseStats.critDmg.length - 1
+          ],
+        substat:
+          characterData.baseStats.substat[
+            characterData.baseStats.substat.length - 1
+          ],
+      },
+    };
+  };
+
+  const setWeapon = async (slug: string, index: number) => {
+    // old weapon data
+    const currentState = entries.value[index];
+
+    if (!currentState) {
+      throw createError('No character selected');
+    }
+
+    // new weapon data
+    const {
+      data: { value: weaponData },
+    } = await useFetch(`/api/data/weapons/${slug}`);
+    if (!weaponData) {
+      throw createError("Couldn't find weapon on db");
+    }
+
+    entries.value[index] = {
+      ...currentState,
+      weapon: {
+        name: weaponData.name[lang],
+        slug: weaponData.slug,
+        lvl: currentState?.weapon.lvl ?? '90/90',
+        refine: currentState?.weapon.refine ?? 1,
+        rarity: weaponData.rarity,
+        weapontype: weaponData.weapontype[lang],
+        mainStat: 'atk',
+        substat: 'er',
+        effect: weaponData.effect?.[lang],
+        effectName: weaponData.effectName?.[lang],
       },
     };
   };
@@ -144,11 +205,25 @@ export const useSimulator = () => {
     };
   };
 
+  const openSelectWeaponModal = (id: number) => {
+    const entry = entries.value[id];
+    if (entry != null) {
+      selectWeaponModalState.value = {
+        open: true,
+        entryId: id,
+        fixedWeapontype: entry.character.weapontype,
+      };
+    }
+  };
+
   return {
     entries,
     setCharacter,
+    setWeapon,
     openSelectCharacterModal,
+    openSelectWeaponModal,
     selectCharacterModalState,
+    selectWeaponModalState,
     selectedEntry,
     selectedEntryIndex,
   };

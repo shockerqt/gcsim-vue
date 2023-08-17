@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-const { selectedEntry, selectedEntryIndex, openSelectCharacterModal } =
+const { selectedEntry, selectedEntryIndex, openSelectCharacterModal, openSelectWeaponModal } =
   useSimulator();
 
 const characterLvlsOptions = [
@@ -58,43 +58,23 @@ const refinements = [
 </script>
 
 <template>
-  <div
-    v-if="selectedEntry && selectedEntryIndex != null"
-    class="grid gap-10 rounded text-primary-500 max-xs:bg-black-500 max-xs:p-4 md:grid-cols-2 xl:grid-cols-3"
-  >
+  <div v-if="selectedEntry && selectedEntryIndex != null"
+    class="grid gap-10 rounded text-primary-500 max-xs:bg-black-500 max-xs:p-4 md:grid-cols-2 xl:grid-cols-3">
     <!-- CHARACTER COLUMN -->
     <div class="flex grow items-center justify-center gap-3">
-      <div
-        class="base-background-gradient aspect-square cursor-pointer flex-wrap"
-      >
-        <img
-          alt="Select character"
-          width="128"
-          height="128"
-          :src="selectedEntry.character.portraitImg"
-          @click="openSelectCharacterModal(selectedEntryIndex)"
-        />
+      <div class="base-background-gradient aspect-square cursor-pointer flex-wrap">
+        <img alt="Select character" width="128" height="128" :src="selectedEntry.character.portraitImg"
+          @click="openSelectCharacterModal(selectedEntryIndex)" />
       </div>
       <div class="flex grow flex-col gap-2">
         <!-- SELECT CHARACTER -->
-        <button
-          class="text-xs font-medium"
-          @click="openSelectCharacterModal(selectedEntryIndex)"
-        >
+        <button class="text-xs font-medium" @click="openSelectCharacterModal(selectedEntryIndex)">
           {{ selectedEntry.character.name }}
         </button>
         <!-- SELECT LVL -->
-        <BaseSelect
-          v-model="selectedEntry.character.lvl"
-          :options="characterLvlsOptions"
-          class="text-xs font-medium"
-        />
+        <BaseSelect v-model="selectedEntry.character.lvl" :options="characterLvlsOptions" class="text-xs font-medium" />
         <!-- SELECT CONSTELLATIONS -->
-        <BaseSelect
-          v-model="selectedEntry.character.cons"
-          :options="constellations"
-          class="text-xs font-medium"
-        />
+        <BaseSelect v-model="selectedEntry.character.cons" :options="constellations" class="text-xs font-medium" />
         <p class="my-1 flex items-center gap-2 text-xs font-medium">
           <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
           {{ selectedEntry.character.substat }}
@@ -105,34 +85,20 @@ const refinements = [
     <div class="flex grow justify-center gap-3">
       <div class="base-background-gradient aspect-square h-full flex-wrap" />
       <div class="flex grow flex-col gap-2">
-        <BaseSelect class="text-xs font-medium" />
+        <button class="text-xs font-medium" @click="openSelectWeaponModal(selectedEntryIndex)">
+          {{ selectedEntry.weapon.name }}
+        </button>
         <!-- SELECT LVL -->
-        <BaseSelect
-          v-model="selectedEntry.weapon.lvl"
-          :options="weaponLvlsOptions"
-          class="text-xs font-medium"
-        />
-        <BaseSelect
-          v-model="selectedEntry.weapon.refine"
-          :options="refinements"
-          class="text-xs font-medium"
-        />
+        <BaseSelect v-model="selectedEntry.weapon.lvl" :options="weaponLvlsOptions" class="text-xs font-medium" />
+        <BaseSelect v-model="selectedEntry.weapon.refine" :options="refinements" class="text-xs font-medium" />
         <div class="grid grid-cols-3 place-items-center justify-items-center">
           <p class="my-1 flex items-center gap-2 text-xs font-medium">
-            <FaIcon
-              class="text-black-100"
-              height="1.5em"
-              :icon="faPaperPlane"
-            />
+            <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
             {{ selectedEntry.weapon.mainStat }}
           </p>
           <hr class="h-3/4 border-r border-r-primary-500" />
           <p class="my-1 flex items-center gap-2 text-xs font-medium">
-            <FaIcon
-              class="text-black-100"
-              height="1.5em"
-              :icon="faPaperPlane"
-            />
+            <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
             {{ selectedEntry.weapon.substat }}
           </p>
         </div>

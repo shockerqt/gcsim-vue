@@ -41,7 +41,7 @@ const getLabel = (value?: T) => {
     <Listbox v-model="modelValue">
       <div class="relative mt-1">
         <ListboxButton
-          class="bg-white focus-visible:border-indigo-500 focus-visible:ring-white focus-visible:ring-offset-orange-300 relative w-full cursor-default rounded-lg py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm"
+          class="focus-visible:border-indigo-500 focus-visible:ring-offset-orange-300 relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm"
         >
           <span class="block truncate">{{
             getLabel(modelValue) || 'SELECCIONAR'
@@ -63,7 +63,7 @@ const getLabel = (value?: T) => {
           leave-to-class="opacity-0"
         >
           <ListboxOptions
-            class="bg-white ring-black absolute mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-opacity-5 focus:outline-none sm:text-sm"
+            class="ring-black absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-opacity-5 focus:outline-none sm:text-sm"
           >
             <ListboxOption
               v-for="option in options"

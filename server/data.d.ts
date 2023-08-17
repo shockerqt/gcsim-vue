@@ -49,6 +49,8 @@ interface DataCharacter {
   };
 }
 
+type DataWeapons = Record<string, DataWeapon>;
+
 interface DataWeapon {
   slug: string;
   name: I18n;

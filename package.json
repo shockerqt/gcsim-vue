@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "nuxt preview",
     "postinstall": "drizzle-kit generate:sqlite && nuxt prepare",
-    "data:generate": "node --loader ts-node/esm  ./scripts/index",
+    "data:generate": "vite-node ./scripts/index.ts",
     "db:dev:generate": "drizzle-kit generate:sqlite --config=drizzle.config.dev.ts",
     "db:generate": "drizzle-kit generate:sqlite",
     "db:push": "drizzle-kit push:sqlite",

@@ -42,6 +42,7 @@
     "better-sqlite3": "^8.5.0",
     "bufferutil": "^4.0.7",
     "drizzle-orm": "^0.27.2",
+    "fuse.js": "^6.6.2",
     "nuxt-headlessui": "^1.1.4",
     "utf-8-validate": "^6.0.3",
     "vite-node": "^0.34.1"

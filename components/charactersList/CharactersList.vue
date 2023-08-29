@@ -32,7 +32,9 @@ const pinnedCharacter = computed(() => {
     (data?.value !== null &&
       textFilter.value.length > 1 &&
       Object.values(data?.value).find((character) =>
-        character.name.en.toLowerCase().includes(textFilter.value.toLowerCase())
+        character.name.en
+          .toLowerCase()
+          .includes(textFilter.value.toLowerCase()),
       )) ||
     null;
   return pinnedCharacter;
@@ -50,10 +52,10 @@ const resetFilters = (filterKey?: keyof Filters) => {
 
 const onClickFilterButton = (
   filterKey: keyof Filters,
-  slug: string | number
+  slug: string | number,
 ) => {
   const index = (selectedFilters[filterKey] as Array<string | number>).indexOf(
-    slug
+    slug,
   );
 
   if (index > -1) {
@@ -72,18 +74,18 @@ const filteredCharacters = computed(() => {
     }
     if (key === 'rarity') {
       filteredCharacters = filteredCharacters.filter((character) =>
-        selectedFilters[key].includes(character[key])
+        selectedFilters[key].includes(character[key]),
       );
     } else if (key === 'element' || key === 'weapontype') {
       filteredCharacters = filteredCharacters.filter((character) =>
-        selectedFilters[key].includes(character[key].en.toLowerCase())
+        selectedFilters[key].includes(character[key].en.toLowerCase()),
       );
     }
   }
 
   if (pinnedCharacter.value) {
     filteredCharacters = filteredCharacters.filter(
-      (character) => character.name.en !== pinnedCharacter?.value?.name.en
+      (character) => character.name.en !== pinnedCharacter?.value?.name.en,
     );
     filteredCharacters.unshift(pinnedCharacter.value);
   }
@@ -93,7 +95,7 @@ const filteredCharacters = computed(() => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-10 flex flex-col gap-4 bg-black-700 py-4">
+  <header class="sticky top-0 z-10 flex flex-col gap-4 bg-black-900 py-4">
     <!-- SEARCH INPUT  + CLEAN BUTTON -->
     <div class="grid grid-cols-[1fr_auto] gap-4 lg:grid-cols-[repeat(17,_1fr)]">
       <!-- SEARCH INPUT -->
@@ -229,7 +231,8 @@ const filteredCharacters = computed(() => {
           @click="() => onClickFilterButton('rarity', value)"
         >
           <div class="flex place-items-start justify-center text-[0.85em]">
-            {{ value }}<FaIcon class="pt-1" height="0.7em" :icon="faStar" />
+            {{ value }}
+            <FaIcon class="pt-1" height="0.7em" :icon="faStar" />
           </div>
         </button>
       </div>
@@ -378,11 +381,13 @@ const filteredCharacters = computed(() => {
 .grid-leave-active {
   transition: all 0.5s ease;
 }
+
 .grid-enter-from,
 .grid-leave-to {
   opacity: 0;
   /* transform: translateX(30px); */
 }
+
 /* ensure leaving items are taken out of layout flow so that moving
    animations can be calculated correctly. */
 .grid-leave-active {
@@ -399,6 +404,7 @@ const filteredCharacters = computed(() => {
   from {
     transform: translate(0%, 0%);
   }
+
   to {
     transform: translate(200%, 200%);
   }

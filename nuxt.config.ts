@@ -11,17 +11,16 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: '',
   },
-  nitro: {
-    preset: 'node-server',
-    future: {
-      nativeSWR: true,
-    },
-    esbuild: {
-      options: {
-        target: 'esnext',
-      },
-    },
-  },
+  // nitro: {
+  //   future: {
+  //     nativeSWR: true,
+  //   },
+  //   esbuild: {
+  //     options: {
+  //       target: 'esnext',
+  //     },
+  //   },
+  // },
   runtimeConfig: {
     dev: process.env.NODE_ENV === 'development',
     auth: {

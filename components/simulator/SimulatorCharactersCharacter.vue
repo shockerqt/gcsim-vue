@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-const { selectedEntry, selectedEntryIndex, openSelectCharacterModal, openSelectWeaponModal } =
-  useSimulator();
+const {
+  selectedEntry,
+  selectedEntryIndex,
+  openSelectCharacterModal,
+  openSelectWeaponModal,
+} = useSimulator();
 
 const characterLvlsOptions = [
   { label: '1/20', value: '1/20' },
@@ -58,23 +62,43 @@ const refinements = [
 </script>
 
 <template>
-  <div v-if="selectedEntry && selectedEntryIndex != null"
-    class="grid gap-10 rounded text-primary-500 max-xs:bg-black-500 max-xs:p-4 md:grid-cols-2 xl:grid-cols-3">
+  <div
+    v-if="selectedEntry && selectedEntryIndex != null"
+    class="grid gap-10 rounded text-primary-500 max-xs:bg-black-500 max-xs:p-4 md:grid-cols-2 xl:grid-cols-3"
+  >
     <!-- CHARACTER COLUMN -->
     <div class="flex grow items-center justify-center gap-3">
-      <div class="base-background-gradient aspect-square cursor-pointer flex-wrap">
-        <img alt="Select character" width="128" height="128" :src="selectedEntry.character.portraitImg"
-          @click="openSelectCharacterModal(selectedEntryIndex)" />
+      <div
+        class="base-background-gradient aspect-square cursor-pointer flex-wrap"
+      >
+        <img
+          alt="Select character"
+          width="128"
+          height="128"
+          :src="selectedEntry.character.portraitImg"
+          @click="openSelectCharacterModal(selectedEntryIndex)"
+        />
       </div>
       <div class="flex grow flex-col gap-2">
         <!-- SELECT CHARACTER -->
-        <button class="text-xs font-medium" @click="openSelectCharacterModal(selectedEntryIndex)">
+        <button
+          class="text-xs font-medium"
+          @click="openSelectCharacterModal(selectedEntryIndex)"
+        >
           {{ selectedEntry.character.name }}
         </button>
         <!-- SELECT LVL -->
-        <BaseSelect v-model="selectedEntry.character.lvl" :options="characterLvlsOptions" class="text-xs font-medium" />
+        <BaseSelect
+          v-model="selectedEntry.character.lvl"
+          :options="characterLvlsOptions"
+          class="text-xs font-medium"
+        />
         <!-- SELECT CONSTELLATIONS -->
-        <BaseSelect v-model="selectedEntry.character.cons" :options="constellations" class="text-xs font-medium" />
+        <BaseSelect
+          v-model="selectedEntry.character.cons"
+          :options="constellations"
+          class="text-xs font-medium"
+        />
         <p class="my-1 flex items-center gap-2 text-xs font-medium">
           <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
           {{ selectedEntry.character.substat }}
@@ -83,23 +107,78 @@ const refinements = [
     </div>
     <!-- WEAPON COLUMN -->
     <div class="flex grow justify-center gap-3">
-      <div class="base-background-gradient aspect-square h-full flex-wrap" />
+      <div
+        class="base-background-gradient aspect-square h-full flex-wrap"
+        @click="openSelectWeaponModal(selectedEntryIndex)"
+      ></div>
       <div class="flex grow flex-col gap-2">
-        <button class="text-xs font-medium" @click="openSelectWeaponModal(selectedEntryIndex)">
-          {{ selectedEntry.weapon.name }}
+        <button
+          class="text-xs font-medium"
+          @click="openSelectWeaponModal(selectedEntryIndex)"
+        >
+          {{ selectedEntry.weapon?.name ?? 'Select weapon' }}
         </button>
         <!-- SELECT LVL -->
-        <BaseSelect v-model="selectedEntry.weapon.lvl" :options="weaponLvlsOptions" class="text-xs font-medium" />
-        <BaseSelect v-model="selectedEntry.weapon.refine" :options="refinements" class="text-xs font-medium" />
-        <div class="grid grid-cols-3 place-items-center justify-items-center">
+        <BaseSelect
+          v-if="selectedEntry.weapon"
+          v-model="selectedEntry.weapon.lvl"
+          :options="
+            weaponLvlsOptions.slice(
+              0,
+              selectedEntry.weapon.baseStats.atk.length,
+            )
+          "
+          class="text-xs font-medium"
+        />
+        <BaseSelect
+          v-if="selectedEntry.weapon"
+          v-model="selectedEntry.weapon.refine"
+          :options="refinements"
+          class="text-xs font-medium"
+        />
+        <div
+          v-if="selectedEntry.weapon"
+          class="grid grid-cols-3 place-items-center justify-items-center"
+        >
           <p class="my-1 flex items-center gap-2 text-xs font-medium">
-            <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
-            {{ selectedEntry.weapon.mainStat }}
+            <FaIcon
+              class="text-black-100"
+              height="1.5em"
+              :icon="faPaperPlane"
+            />
+            {{
+              selectedEntry?.weapon?.lvl
+                ? selectedEntry.weapon.baseStats.atk[
+                    weaponLvlsOptions.findIndex(
+                      ({ value }) => selectedEntry?.weapon?.lvl === value,
+                    )
+                  ]
+                : ''
+            }}
           </p>
-          <hr class="h-3/4 border-r border-r-primary-500" />
-          <p class="my-1 flex items-center gap-2 text-xs font-medium">
-            <FaIcon class="text-black-100" height="1.5em" :icon="faPaperPlane" />
-            {{ selectedEntry.weapon.substat }}
+          <hr
+            v-if="selectedEntry.weapon.substat != null"
+            class="h-3/4 border-r border-r-primary-500"
+          />
+          <p
+            v-if="selectedEntry.weapon.substat != null"
+            class="my-1 flex items-center gap-2 text-xs font-medium"
+          >
+            <FaIcon
+              class="text-black-100"
+              height="1.5em"
+              :icon="faPaperPlane"
+            />
+            {{
+              selectedEntry?.weapon?.lvl &&
+              selectedEntry.weapon.baseStats.substat
+                ? selectedEntry.weapon.baseStats.substat[
+                    weaponLvlsOptions.findIndex(
+                      ({ value }) => selectedEntry?.weapon?.lvl === value,
+                    )
+                  ]
+                : ''
+            }}
           </p>
         </div>
       </div>

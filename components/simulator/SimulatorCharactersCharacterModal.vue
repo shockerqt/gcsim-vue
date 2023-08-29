@@ -35,7 +35,7 @@ const { setCharacter, selectCharacterModalState } = useSimulator();
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-screen-lg transform overflow-hidden rounded-2xl bg-black-700 p-6 text-left align-middle shadow-xl transition-all"
+              class="w-full max-w-screen-lg transform overflow-hidden rounded-2xl bg-black-900 p-6 text-left align-middle shadow-xl transition-all"
             >
               <CharactersList
                 :handler="async (slug: string) => {

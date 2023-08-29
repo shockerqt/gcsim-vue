@@ -44,7 +44,7 @@ export interface SimulatorEntry {
     c3: number;
     portraitImg: string;
   };
-  weapon: {
+  weapon?: {
     name: string;
     slug: string;
     lvl: string;
@@ -55,6 +55,7 @@ export interface SimulatorEntry {
     weapontype: string;
     effect?: string;
     effectName?: string;
+    baseStats: DataWeapon['baseStats'];
   };
   artifactsSets: ArtifactsSet[];
   artifacts: (Artifact | null)[];
@@ -104,6 +105,7 @@ export const useSimulator = () => {
     const {
       data: { value: characterData },
     } = await useFetch(`/api/data/characters/${slug}`);
+
     if (!characterData) {
       throw createError("Couldn't find character on db");
     }
@@ -129,16 +131,7 @@ export const useSimulator = () => {
         c3: currentState?.character.c3 || 9,
         portraitImg: characterData.images.portrait.src,
       },
-      weapon: {
-        name: 'favoniussword',
-        slug: 'favoniussword',
-        lvl: currentState?.weapon.lvl || '90/90',
-        refine: 1,
-        rarity: 4,
-        weapontype: 'sword',
-        mainStat: 'atk',
-        substat: 'er',
-      },
+      weapon: currentState?.weapon?.weapontype === characterData.weapontype[lang] ? currentState.weapon : undefined,
       artifactsSets: [],
       artifacts: [null, null, null, null, null],
       stats: {
@@ -151,15 +144,15 @@ export const useSimulator = () => {
         ],
         critRate:
           characterData.baseStats.critRate[
-            characterData.baseStats.critRate.length - 1
+          characterData.baseStats.critRate.length - 1
           ],
         critDmg:
           characterData.baseStats.critDmg[
-            characterData.baseStats.critDmg.length - 1
+          characterData.baseStats.critDmg.length - 1
           ],
         substat:
           characterData.baseStats.substat[
-            characterData.baseStats.substat.length - 1
+          characterData.baseStats.substat.length - 1
           ],
       },
     };
@@ -176,7 +169,7 @@ export const useSimulator = () => {
     // new weapon data
     const {
       data: { value: weaponData },
-    } = await useFetch(`/api/data/weapons/${slug}`);
+    } = await useFetch<DataWeapon>(`/api/data/weapons/${slug}`);
     if (!weaponData) {
       throw createError("Couldn't find weapon on db");
     }
@@ -186,14 +179,15 @@ export const useSimulator = () => {
       weapon: {
         name: weaponData.name[lang],
         slug: weaponData.slug,
-        lvl: currentState?.weapon.lvl ?? '90/90',
-        refine: currentState?.weapon.refine ?? 1,
+        lvl: currentState?.weapon?.lvl ?? '90/90',
+        refine: currentState?.weapon?.refine ?? 1,
         rarity: weaponData.rarity,
         weapontype: weaponData.weapontype[lang],
         mainStat: 'atk',
         substat: 'er',
         effect: weaponData.effect?.[lang],
         effectName: weaponData.effectName?.[lang],
+        baseStats: weaponData.baseStats,
       },
     };
   };

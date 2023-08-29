@@ -159,6 +159,7 @@ const resetFilters = (filterKey?: keyof Filters) => {
       </div>
       <!-- WEAPONS FILTERS -->
       <div
+        v-if="fixedWeapontype == null"
         class="col-span-6 hidden grid-cols-[repeat(6,_1fr)] divide-x divide-black-500 overflow-hidden rounded border border-black-500 lg:grid"
       >
         <!-- WEAPONS BUTTON ALL -->

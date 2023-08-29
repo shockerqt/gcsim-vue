@@ -9,7 +9,7 @@ const isOpen = useState('is-open-modal', () => false);
       class="absolute left-0 top-0 grid h-screen min-h-screen w-screen place-items-center bg-primary-500/50 p-4"
     >
       <div
-        class="h-full w-full max-w-screen-lg overflow-y-auto rounded bg-black-700 px-4 pb-8"
+        class="h-full w-full max-w-screen-lg overflow-y-auto rounded bg-black-900 px-4 pb-8"
       >
         <p>Hello from the modal!</p>
         <button class="fixed right-4 top-4" @click="isOpen = false">

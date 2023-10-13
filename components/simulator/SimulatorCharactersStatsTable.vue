@@ -8,7 +8,7 @@ defineProps<{ table: Table }>();
 </script>
 
 <template>
-  <div class="bg-black-400 pb-2 text-[0.6rem]">
+  <div class="bg-black-700 pb-2 text-[0.6rem]">
     <table class="w-full text-left text-xs">
       <thead class="uppercase text-primary-500">
         <tr>
@@ -21,11 +21,11 @@ defineProps<{ table: Table }>();
         <tr
           v-for="(row, i) of table.rows"
           :key="row[0]"
-          :class="{ 'bg-black-600': i % 2 === 0 }"
+          :class="{ 'bg-black-800': i % 2 === 0 }"
         >
           <th
             scope="row"
-            class="whitespace-nowrap px-4 py-1 font-normal text-black-100"
+            class="whitespace-nowrap px-4 py-1 font-normal text-white"
           >
             {{ row[0] }}
           </th>

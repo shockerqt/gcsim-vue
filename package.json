@@ -19,17 +19,17 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/image": "1.0.0-rc.1",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@tailwindcss/forms": "^0.5.4",
-    "@types/node": "^20.4.8",
-    "@vueuse/core": "^10.3.0",
-    "@vueuse/nuxt": "^10.3.0",
-    "drizzle-kit": "^0.19.12",
-    "eslint": "^8.46.0",
+    "@tailwindcss/forms": "^0.5.6",
+    "@types/node": "^20.8.6",
+    "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
+    "drizzle-kit": "^0.19.13",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^8.10.0",
-    "nuxt": "^3.6.5",
-    "postcss": "^8.4.27",
+    "nuxt": "^3.7.4",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "ts-node": "^10.9.1"
@@ -37,14 +37,14 @@
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@headlessui/vue": "^1.7.15",
-    "@libsql/client": "^0.3.1",
-    "better-sqlite3": "^8.5.0",
+    "@headlessui/vue": "^1.7.16",
+    "@libsql/client": "^0.3.5",
+    "better-sqlite3": "^8.7.0",
     "bufferutil": "^4.0.7",
     "drizzle-orm": "^0.27.2",
     "fuse.js": "^6.6.2",
     "nuxt-headlessui": "^1.1.4",
     "utf-8-validate": "^6.0.3",
-    "vite-node": "^0.34.1"
+    "vite-node": "^0.34.6"
   }
 }

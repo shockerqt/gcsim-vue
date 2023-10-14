@@ -74,3 +74,46 @@ interface DataWeapon {
     portrait: Image;
   };
 }
+
+interface DataArtifactSet {
+  slug: string;
+  name: I18n;
+  rarity: 4 | 5;
+  twoPiecesBonus: I18n;
+  fourPiecesBonus: I18n;
+}
+
+interface DataArtifactRelictType {
+  slug: string;
+  name: I18n;
+}
+
+interface DataArtifactStatName {
+  slug: string;
+  name: I18n;
+}
+
+interface DataArtifact {
+  slug: string;
+  name: I18n;
+  set: DataArtifactSet;
+  relicType: DataArtifactRelictType;
+  description: I18n;
+  story: I18n;
+  mainStat: DataArtifactMainStat;
+  image: Image;
+}
+
+interface DataArtifactRelicTypeMainStat {
+  relictType: DataArtifactRelictType;
+  mainStat: DataArtifactMainStat[];
+}
+
+interface DataArtifactMainStat {
+  name: DataArtifactStatName;
+  rarity: 4 | 5;
+  values: number[];
+}
+
+
+

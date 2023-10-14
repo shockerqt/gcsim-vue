@@ -3,7 +3,7 @@
     "relicType": "flower",
     "mainStat": [
       {
-        "name": "hp",
+        "slug": "hp",
         "rarity": 4,
         "values": [
           717,
@@ -23,7 +23,7 @@
         ]
       },
       {
-        "name": "hp",
+        "slug": "hp",
         "rarity": 5,
         "values": [
           1001,
@@ -48,7 +48,7 @@
     "relicType": "plume",
     "mainStat": [
       {
-        "name": "atk",
+        "slug": "atk",
         "rarity": 4,
         "values": [
           717,
@@ -68,7 +68,7 @@
         ]
       },
       {
-        "name": "atk",
+        "slug": "atk",
         "rarity": 5,
         "values": [
           1001,

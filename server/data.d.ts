@@ -97,11 +97,11 @@ interface DataArtifact {
   slug: string;
   name: I18n;
   set: DataArtifactSet;
-  relicType: DataArtifactRelictType;
+  relicType: I18n;
   description: I18n;
   story: I18n;
-  mainStat: DataArtifactMainStat;
-  image: Image;
+  mainStat?: DataArtifactMainStat;
+  image?: Image;
 }
 
 interface DataArtifactRelicTypeMainStat {

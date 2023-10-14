@@ -21,7 +21,7 @@ export const filenameVersion = () => {
 };
 
 export const writeTo = async (path: string, object: Object) => {
-  await writeFile(path, JSON.stringify(object, null, 2), { flag: 'w+' });
+  await writeFile(path, JSON.stringify(object, null, 2));
 };
 
 export const backupData = async (filename: string) => {

@@ -22,10 +22,6 @@ const inputValues = generateInputValues2([4.08, 4.66, 5.25, 5.83], 6);
 
 <template>
   <div class="p-4">
-    <p>{{ inputValues.length }}</p>
-    <p>
-      {{ inputValues }}
-    </p>
     <BaseTabs class="my-4" :buttons="buttons" />
     <SimulatorCharacters v-if="buttons[0].state === 'active'" />
     <SimulatorEnemies v-if="buttons[1].state === 'active'" />

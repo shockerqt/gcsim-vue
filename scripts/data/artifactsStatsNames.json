@@ -2,8 +2,134 @@
   {
     "slug": "hp",
     "name": {
-      "es": "Flore",
-      "en": "Flowe"
+      "es": "Vida",
+      "en": "Health"
+    }
+  },
+  {
+    "slug": "hp%",
+    "name": {
+      "es": "Vida %",
+      "en": "Health %"
+    }
+  },
+  {
+    "slug": "def",
+    "name": {
+      "es": "Defensa",
+      "en": "Defense"
+    }
+  },
+  {
+    "slug": "def%",
+    "name": {
+      "es": "Defensa %",
+      "en": "Defense %"
+    }
+  },
+  {
+    "slug": "atk",
+    "name": {
+      "es": "Ataque",
+      "en": "Attack"
+    }
+  },
+  {
+    "slug": "atk%",
+    "name": {
+      "es": "Ataque %",
+      "en": "Attack %"
+    }
+  },
+  {
+    "slug": "me",
+    "name": {
+      "es": "Maestria Elemental",
+      "en": "Elemental Mastery"
+    }
+  },
+  {
+    "slug": "re",
+    "name": {
+      "es": "Recarga de Energía",
+      "en": "Energy Recharge"
+    }
+  },
+  {
+    "slug": "critRate",
+    "name": {
+      "es": "Probabilidad Crítica",
+      "en": "Critical Rate"
+    }
+  },
+  {
+    "slug": "critDamage",
+    "name": {
+      "es": "Daño Crítico",
+      "en": "Critical DMG"
+    }
+  },
+  {
+    "slug": "healBonnus",
+    "name": {
+      "es": "Bono de Curación",
+      "en": "Healing Bonus"
+    }
+  },
+  {
+    "slug": "anemoBonnus",
+    "name": {
+      "es": "Bono de Daño Anemo",
+      "en": "Anemo DMG Bonus "
+    }
+  },
+  {
+    "slug": "geoBonnus",
+    "name": {
+      "es": "Bono de Daño Geo",
+      "en": "Geo DMG Bonus "
+    }
+  },
+  {
+    "slug": "electroBonnus",
+    "name": {
+      "es": "Bono de Daño Electro",
+      "en": "Electro DMG Bonus "
+    }
+  },
+  {
+    "slug": "hydroBonnus",
+    "name": {
+      "es": "Bono de Daño Hydro",
+      "en": "Hydro DMG Bonus "
+    }
+  },
+  {
+    "slug": "pyroBonnus",
+    "name": {
+      "es": "Bono de Daño Pyro",
+      "en": "Pyro DMG Bonus "
+    }
+  },
+  {
+    "slug": "cryoBonnus",
+    "name": {
+      "es": "Bono de Daño Cryo",
+      "en": "Cryo DMG Bonus "
+    }
+  },
+  {
+    "slug": "dendroBonnus",
+    "name": {
+      "es": "Bono de Daño Dendro",
+      "en": "Dendro DMG Bonus "
+    }
+  },
+  {
+    "slug": "physicalBonnus",
+    "name": {
+      "es": "Bono de Daño Físico",
+      "en": "Physical DMG Bonus "
     }
   }
 ]

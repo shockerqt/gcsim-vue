@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { setWeapon, selectWeaponModalState } = useSimulator();
+const { setArtifact, selectArtifactModalState, selectedEntry } = useSimulator();
 defineProps<{
   fixedFilter?: string;
 }>();
@@ -8,13 +8,13 @@ defineProps<{
 <template>
   <TransitionRoot
     appear
-    :show="selectWeaponModalState.open === true"
+    :show="selectArtifactModalState.open === true"
     as="template"
   >
     <Dialog
       as="div"
       class="relative z-10"
-      @close="selectWeaponModalState.open = false"
+      @close="selectArtifactModalState.open = false"
     >
       <TransitionChild
         as="template"
@@ -44,15 +44,17 @@ defineProps<{
             <DialogPanel
               class="w-full max-w-screen-lg transform overflow-hidden rounded-2xl bg-black-900 p-6 text-left align-middle shadow-xl transition-all"
             >
-              <WeaponsList
-                :fixed-weapontype="
-                  selectWeaponModalState.open === true
-                    ? selectWeaponModalState.fixedWeapontype
+              <ArtifactsList
+                :fixed-type="
+                  selectArtifactModalState.open === true
+                    ? selectArtifactModalState.fixedArtifactType
                     : undefined
                 "
                 :handler="async (slug: string) => {
-                  selectWeaponModalState.open === true && await setWeapon(slug, selectWeaponModalState.entryId);
-                  selectWeaponModalState.open = false;
+                  selectArtifactModalState.open === true
+                    && selectedEntry?.ui.selectedArtifact != null
+                    && await setArtifact(slug, selectArtifactModalState.entryId, selectedEntry?.ui.selectedArtifact );
+                  selectArtifactModalState.open = false;
                 }"
               />
             </DialogPanel>

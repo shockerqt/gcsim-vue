@@ -25,6 +25,7 @@ const tabButtons: Ref<TabButton[]> = ref([
 <template>
   <SimulatorCharactersCharacterModal />
   <SimulatorCharactersCharacterWeaponModal />
+  <SimulatorCharactersArtifactModal />
   <SimulatorCharactersPreviewButton />
   <hr class="my-4 w-full border border-b-0 border-t-2 border-primary-500" />
 
@@ -33,9 +34,18 @@ const tabButtons: Ref<TabButton[]> = ref([
       <BaseTabs class="mb-4" :buttons="tabButtons" :column="greaterThanLg" />
     </aside>
     <div class="grow">
-      <SimulatorCharactersCharacter v-if="tabButtons[0].state === `active`" class="grow" />
-      <SimulatorCharactersArtifacts v-if="tabButtons[1].state === `active`" class="grow" />
-      <SimulatorCharactersStats v-if="tabButtons[2].state === `active`" class="grow" />
+      <SimulatorCharactersCharacter
+        v-if="tabButtons[0].state === `active`"
+        class="grow"
+      />
+      <SimulatorCharactersArtifacts
+        v-if="tabButtons[1].state === `active`"
+        class="grow"
+      />
+      <SimulatorCharactersStats
+        v-if="tabButtons[2].state === `active`"
+        class="grow"
+      />
     </div>
   </div>
 </template>

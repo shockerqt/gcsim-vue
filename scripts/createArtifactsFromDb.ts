@@ -57,7 +57,7 @@ export const createArtifactsFromDb = async (save = false) => {
                 en: artifactJsonEn.name,
                 es: artifactJsonEs.name,
               },
-              rarity,
+              rarity: Number(rarity) as any,
               twoPiecesBonus: {
                 en: artifactJsonEn['2pc'],
                 es: artifactJsonEs['2pc'],

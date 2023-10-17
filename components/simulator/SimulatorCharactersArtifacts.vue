@@ -10,7 +10,8 @@ const labels = [
   // 'Substats4',
 ];
 
-const { entries, selectedEntryIndex } = useSimulator();
+const { entries, selectedEntryIndex, handleOnClickArtifactEntry } =
+  useSimulator();
 </script>
 
 <template>
@@ -30,7 +31,7 @@ const { entries, selectedEntryIndex } = useSimulator();
             'border-2 border-primary-500':
               entries[selectedEntryIndex]?.ui.selectedArtifact === i,
           }"
-          @click="entries[selectedEntryIndex]!.ui.selectedArtifact = i"
+          @click="handleOnClickArtifactEntry(selectedEntryIndex, i)"
         />
       </header>
       <!--buscar un select custom-->

@@ -1,15 +1,13 @@
-type ArtifactsSet = {
-  name: string;
-  count: number;
-};
+type ArtifactSet = {
+  slug: string;
+}
 
 type Artifact = {
   name: string;
+  slug: string;
   lvl: number;
   rarity: number;
-  mainStat: string;
-  mainStatValue: number;
-  substats: Record<string, number>;
+  set: ArtifactSet;
 };
 
 type Stats = {
@@ -25,6 +23,9 @@ type CharactersModal = { open: false } | { open: true; entryId: number };
 type WeaponsModal =
   | { open: false }
   | { open: true; entryId: number; fixedWeapontype: string };
+type ArtifactsModal =
+  | { open: false }
+  | { open: true; entryId: number; fixedArtifactType: string };
 
 export interface SimulatorEntry {
   ui: {
@@ -57,7 +58,6 @@ export interface SimulatorEntry {
     effectName?: string;
     baseStats: DataWeapon['baseStats'];
   };
-  artifactsSets: ArtifactsSet[];
   artifacts: (Artifact | null)[];
   stats: Stats;
 }
@@ -100,6 +100,11 @@ export const useSimulator = () => {
     () => ({ open: false }),
   );
 
+  const selectArtifactModalState = useState<ArtifactsModal>(
+    'simulatorSelectArtifactModal',
+    () => ({ open: false }),
+  );
+
   const setCharacter = async (slug: string, index: number) => {
     // new character data
     const {
@@ -132,7 +137,6 @@ export const useSimulator = () => {
         portraitImg: characterData.images.portrait.src,
       },
       weapon: currentState?.weapon?.weapontype === characterData.weapontype[lang] ? currentState.weapon : undefined,
-      artifactsSets: [],
       artifacts: [null, null, null, null, null],
       stats: {
         hp: characterData.baseStats.hp[characterData.baseStats.hp.length - 1],
@@ -192,6 +196,39 @@ export const useSimulator = () => {
     };
   };
 
+  const setArtifact = async (slug: string, characterEntryIndex: number, artifactEntryIndex: number) => {
+    // old weapon data
+    const selectedEntry = entries.value[characterEntryIndex];
+
+    if (!selectedEntry) {
+      throw createError('No character selected');
+    }
+
+    // new weapon data
+    const {
+      data: { value: artifactData },
+    } = await useFetch<DataArtifact>(`/api/data/artifacts/${slug}`);
+    if (!artifactData) {
+      throw createError("Couldn't find weapon on db");
+    }
+
+    const currentArtifacts = selectedEntry.artifacts;
+    currentArtifacts[artifactEntryIndex] = {
+      name: artifactData.name[lang],
+      slug: artifactData.slug,
+      lvl: 20,
+      rarity: artifactData.set.rarity,
+      set: {
+        slug: artifactData.set.slug,
+      },
+    };
+
+    entries.value[characterEntryIndex] = {
+      ...selectedEntry,
+      artifacts: currentArtifacts,
+    };
+  };
+
   const openSelectCharacterModal = (id: number) => {
     selectCharacterModalState.value = {
       open: true,
@@ -210,14 +247,39 @@ export const useSimulator = () => {
     }
   };
 
+  const openSelectArtifactModal = (id: number) => {
+    const entry = entries.value[id];
+    if (entry != null) {
+      selectArtifactModalState.value = {
+        open: true,
+        entryId: id,
+        fixedArtifactType: entry.character.weapontype,
+      };
+    }
+  };
+
+  const handleOnClickArtifactEntry = (id: number, index: number) => {
+    const entry = entries.value[id];
+    if (entry == null) return;
+    entry.ui.selectedArtifact = index;
+    if (entry.artifacts[index] == null) {
+      openSelectArtifactModal(id);
+    }
+  };
+
+
   return {
+    handleOnClickArtifactEntry,
     entries,
     setCharacter,
     setWeapon,
+    setArtifact,
     openSelectCharacterModal,
     openSelectWeaponModal,
+    openSelectArtifactModal,
     selectCharacterModalState,
     selectWeaponModalState,
+    selectArtifactModalState,
     selectedEntry,
     selectedEntryIndex,
   };

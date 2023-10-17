@@ -75,6 +75,8 @@ interface DataWeapon {
   };
 }
 
+type DataArtifacts = Record<string, DataArtifact>;
+
 interface DataArtifactSet {
   slug: string;
   name: I18n;
@@ -92,6 +94,7 @@ interface DataArtifactStatName {
   slug: string;
   name: I18n;
 }
+
 
 interface DataArtifact {
   slug: string;
